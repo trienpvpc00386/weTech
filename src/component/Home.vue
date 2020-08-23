@@ -200,9 +200,42 @@
 
       <div class="products-interested mt-5">
           <h4>NGÀNH HÀNG QUAN TÂM</h4>
-          <div class="row">
-              <div class="col-sm-2">
-                  <img src="" alt="">
+          <div class="row mt-4">
+              <div class="col-sm-2 card">
+                  <div class="card-body">
+                      <img src="../assets/dienthoai-maytinhbang.png" width="100%">
+                      <p>Điện Thoại - Máy Tính Bảng</p>
+                  </div>
+              </div>
+              <div class="col-sm-2 card">
+                  <div class="card-body">
+                      <img src="../assets/camera.png" width="100%">
+                      <p>Máy Ảnh - Quay Phim</p>
+                  </div>
+              </div>
+              <div class="col-sm-2 card">
+                  <div class="card-body">
+                      <img src="../assets/dienlanh.png" width="100%">
+                      <p>Điện Tử - Điện Lạnh</p>
+                  </div>
+              </div>
+              <div class="col-sm-2 card">
+                  <div class="card-body">
+                      <img src="../assets/laptop.png" width="100%">
+                      <p>Laptop - Thiết Bị IT</p>
+                  </div>
+              </div>
+              <div class="col-sm-2 card">
+                  <div class="card-body">
+                      <img src="../assets/thoitrang.png" width="100%">
+                      <p>Thời Trang - Phụ Kiện</p>
+                  </div>
+              </div>
+              <div class="col-sm-2 card">
+                  <div class="card-body">
+                      <img src="../assets/lamdep.png" width="100%">
+                      <p>Làm Đẹp - Sức Khỏe</p>
+                  </div>
               </div>
           </div>
       </div>
@@ -263,6 +296,9 @@ export default {
     width: 87%;
     margin-left: 6.5%;
     margin-right: 6.5%;
+}
+.products-interested .card{
+    border: 0;
 }
 
 </style>
