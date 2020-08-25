@@ -2,7 +2,7 @@
   <div>
       <Header/>
         <div class="link-menu">
-          <a href="products">Trang chủ&emsp;
+          <a href="/">Trang chủ&emsp;
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
           </svg>&emsp;
@@ -27,7 +27,7 @@
                 <div class="input-group mb-2">
                     <input type="text" class="form-control" placeholder="Tìm kiếm">
                     <div class="input-group-append">
-                        <button class="btn btn-info" type="submit">
+                        <button class="btn btn-success" type="submit">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                             <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -101,7 +101,7 @@
                 <div class="input-group mb-2">
                     <input type="text" class="form-control" placeholder="Tìm kiếm">
                     <div class="input-group-append">
-                        <button class="btn btn-info" type="submit">
+                        <button class="btn btn-success" type="submit">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                             <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
@@ -138,7 +138,7 @@
             <div class="col-sm-8 all-products">
                 <div class="dropdown">
                     <strong>TẤT CẢ SẢN PHẨM</strong>&emsp;
-                    <button type="button" class="btn-rate dropdown-toggle" data-toggle="dropdown" style="height: 35px; font-size: 15px;">
+                    <button type="button" class="btn-search dropdown-toggle" data-toggle="dropdown" style="height: 35px; font-size: 15px;">
                         Xếp theo
                     </button>
                     <div class="dropdown-menu">
@@ -148,120 +148,159 @@
                         <a class="dropdown-item" href="#">Giá Giảm Dần</a>
                     </div><hr>
                 </div>
+
+                <div class="featured-products mt-3">
+                    <div class="row mt-4 featured-products-all">
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-outline-danger">-45%</button>
+                                <a href="productdetail">
+                                    <img src="../assets/sp2.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                </a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-outline-danger">-35%</button>
+                                <img src="../assets/sp3.png" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-outline-danger">-55%</button>
+                                <img src="../assets/sp4.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-outline-danger">-45%</button>
+                                <img src="../assets/sp2.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-outline-danger">-55%</button>
+                                <img src="../assets/sp4.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-outline-danger">-45%</button>
+                                <img src="../assets/sp2.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-danger">-45%</button>
+                                <img src="../assets/sp2.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-danger">-35%</button>
+                                <img src="../assets/sp3.png" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-danger">-55%</button>
+                                <img src="../assets/sp4.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-danger">-45%</button>
+                                <img src="../assets/sp2.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-danger">-55%</button>
+                                <img src="../assets/sp4.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 card">
+                            <div class="card-body">
+                                <button class="btn btn-danger">-45%</button>
+                                <img src="../assets/sp2.jpg" width="100%">
+                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99 - $10</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                </div><hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                </div><hr>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="card">
-                            <img src="../assets/img/nuoc-hoa.jpg" alt="Denim Jeans" style="width:100%">
-                            <h5>Nước hoa ABC</h5>
-                            <p class="price">$19.99</p>
-                            <a href="productdetail"><button>Xem chi tiết</button></a>
-                        </div>
-                    </div>
-                </div><br><hr>
+                <br><hr>
                 <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">Trước</a></li>
-                    <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">4</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">...</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">Sau</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">Trước</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">1</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">2</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">3</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">4</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">...</a></li>
+                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">Sau</a></li>
                 </ul><hr>
             </div>
         </div>
+        <Footer/>
   </div>
 </template>
 <script>
@@ -281,7 +320,7 @@ export default {
     }
     /*link menu*/
     .link-menu {
-        background-color: #f3f3f3;
+        background-color: #f5f5f5;
         text-align: left;
         padding-left: 10%;
         padding-top: 10px;
@@ -299,20 +338,17 @@ export default {
     }
 
     /* Search */
-    .search {
-        height: 30px;
-        width: 160px;
-        border: 1px solid gray;
-        border-radius: 5px;
-    }
-    .button-search {
-        margin-left: -15%;
+    .btn-search {
         border: none;
         height: 100%;
-        width: 300%;
-        background-color: #004400;
-        color: white;
+        width: 10%;
+        background-color: #ffffff;
+        color: rgb(0, 0, 0);
         border-radius: 5px;
+    }
+    .btn-search:hover {
+        background-color: #daffe0;
+        color: #026112;
     }
 
     /*Category*/
@@ -334,58 +370,59 @@ export default {
     }
 
     /*All Products*/
-    .all-products{
-        text-align: left;
-        padding-left: 2%;
-        padding-right: 5%;
-        font-size: 15px;
+
+    .home{
+    background-color: rgb(248,248,248);
     }
-    .btn-rate {
-        border: none;
+    .content-home{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    #category {
+        border-radius: 0;
+        box-shadow: 0 0 5px rgb(51, 153, 102);
+    }
+    #category a{
+        border: 0;
+    }
+    .featured-products{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .featured-products h4{
+        color: rgb(255, 72, 0);
+    }
+    .featured-products h5{
+        color: rgb(255, 30, 0);
+    }
+    .featured-products .card{
+        border: 0;
+        width: 100%;
+    }
+    .featured-products .featured-products-all{
         background-color: white;
+    }
+    .featured-products .card:hover{
+        width: 110%;
+        box-shadow: 0 4px 4px 4px rgb(236, 236, 236);
+        background-color: rgb(255, 255, 255);
+        margin-top: -1%;
+    }
+    .products-interested{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .card-body a {
+        text-decoration: none;
         color: black;
-        font-weight: bold;
     }
-    .btn-rate:hover {
-        background-color: rgb(220, 252, 206);
-        color: rgb(14, 122, 4);
-        font-weight: bold;
-    }
-    .search-brand{
-        width: 70%;
-        border-radius: 5px ;
-    }
-    .card {
-        border: none;
-        max-width: 300px;
-        margin: auto;
-        text-align: center;
-        font-family: arial;
-    }
-    .card:hover {
-        width: 97%;
-        height: 97%;
-        box-shadow: 0px 5px 4px 5px #f5f5f5;
+    .card-body a:hover {
+        color: rgb(230, 138, 0);
     }
     
-    .card button {
-        border: none;
-        outline: 0;
-        padding: 12px;
-        color: white;
-        background-color: #d66b07;
-        text-align: center;
-        cursor: pointer;
-        width: 100%;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    .card button:hover {
-        background-color: #0a960a;
-        font-size: 17px;
-        opacity: 0.6;
-    }
     /*Sort*/
     .sort{
         background-color: #F5F5F5;
