@@ -147,10 +147,12 @@
       <div class="featured-products mt-4">
           <h4 class=""><i><b class="mt-2">Khuyến Mãi Hôm Nay</b></i></h4><hr>
           <div class="row mt-4 featured-products-all">
-              <div class="col-sm-2 card">
-                  <div class="card-body">
+              <div class="col-sm-2 card" @click="goDetail">
+                  <div class="card-body" >
                       <button class="btn btn-outline-danger">-45%</button>
-                      <a href="products"><img src="../assets/sp2.jpg" width="100%"></a>
+
+                      <a href="javascript:void(0)"><img src="../assets/sp2.jpg" width="100%"></a>
+                      
                       <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
                       <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                       <div class="progress">
@@ -543,7 +545,11 @@
 <script>
 
 export default {
-
+    methods:{
+        goDetail(){
+            this.$router.push({path:'/products'})
+        }
+    }
 }
 </script>
 
