@@ -1,12 +1,13 @@
 <template>
   <div class="home">
-      <Header/>
       <div class="row content-home">
           <div class="">
               <div class="list-group" id="category">
                 <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#">
+                        <a href="#" class="list-group-item list-group-item-action" id="danhmuc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-tablet"></i>  Điện Thoại - Máy Tính Bảng</a>
+                    </a>
                     <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc">
                         <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
                         <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
@@ -536,18 +537,13 @@
           </div>
       </div>
 
-      <Footer/>
   </div>
 </template>
 
 <script>
-import Header from '../layout/Header'
-import Footer from '../layout/Footer'
+
 export default {
-    components: {
-        Header,
-        Footer
-    }
+
 }
 </script>
 

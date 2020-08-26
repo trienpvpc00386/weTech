@@ -459,12 +459,7 @@
                   <div class="col">
                     <ul class="nav nav-pills justify-content-end">
                       <li
-                        class="nav-item mr-2 mr-md-0"
-                        data-toggle="chart"
-                        data-target="#chart-sales-dark"
-                        data-update="{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}"
-                        data-prefix="$"
-                        data-suffix="k"
+    
                       >
                         <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
                           <span class="d-none d-md-block">Month</span>
@@ -475,7 +470,7 @@
                         class="nav-item"
                         data-toggle="chart"
                         data-target="#chart-sales-dark"
-                        data-update="{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}"
+    
                         data-prefix="$"
                         data-suffix="k"
                       >

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="loginForm">
     <div class="bg-gradient-primary py-7 py-lg-8 pt-lg-9">
       <!-- Main content -->
       <div class="main-content">
@@ -15,13 +15,13 @@
                   <div class="btn-wrapper text-center">
                     <a href="#" class="btn btn-neutral btn-icon">
                       <span class="btn-inner--icon">
-                        <img src="../../assets/img/icons/common/github.svg" />
+                        <img src="../assets/img/icons/common/github.svg" />
                       </span>
                       <span class="btn-inner--text">Github</span>
                     </a>
                     <a href="#" class="btn btn-neutral btn-icon">
                       <span class="btn-inner--icon">
-                        <img src="../../assets/img/icons/common/google.svg" />
+                        <img src="../assets/img/icons/common/google.svg" />
                       </span>
                       <span class="btn-inner--text">Google</span>
                     </a>
@@ -89,5 +89,11 @@ export default {};
 </script>
 
 <style>
-@import url("../../assets/css/argon.css");
+@import url("../assets/css/argon.css");
+/* #loginForm{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+} */
 </style>
