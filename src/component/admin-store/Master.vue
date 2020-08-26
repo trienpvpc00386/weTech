@@ -154,12 +154,16 @@
         </div>
       </div>
     </nav>
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
-export default {};
+import Dashboard from './Dashboard'
+export default {
+  components:{
+    Dashboard
+  }
+};
 </script>
 
 <style>

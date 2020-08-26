@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <Master/>
   </div>
 </template>
 
 <script>
-import $ from 'jquery'
+import Master from './layout/Master'
 export default {
-  methods: {
-  } 
+    components: {
+      Master
+    }
 }
 </script>
 
