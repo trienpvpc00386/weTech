@@ -4,14 +4,13 @@ import Productdetail from './component/Productdetail'
 import Cart from './component/Cart'
 import Login from './component/Login'
 
-export const routes = [
-    { 
-        path: '/', 
+export const routes = [{
+        path: '/',
         component: Home,
-        name:Home
+        name: "Home"
     },
     { path: '/products', component: Products },
-    { path: '/productdetail', component: Productdetail },
+    { path: '/product-detail', component: Productdetail },
     { path: '/cart', component: Cart },
 
     // Route shop

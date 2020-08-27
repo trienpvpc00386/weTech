@@ -1,6 +1,5 @@
 <template>
   <div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <nav class="navbar navbar-expand-lg navbar-light" id="header-top">
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto" id="header-top-ul">
@@ -30,7 +29,7 @@
       </nav>
 
       <nav class="navbar navbar-expand-lg navbar-dark" id="header">
-        <a class="navbar-brand" href="#"><img src="../assets/logo.png" width="165px"></a>
+        <a class="navbar-brand" href="javascript:void(0)" @click="Home"><img src="../assets/logo.png" width="165px"></a>
         <button class="navbar-toggler menu-reponsive" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,8 +50,8 @@
               <div class="dropdown">
                 <a class="nav-link" href="#" role="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o"></i> Tài khoản</a>
                   <div class="dropdown-menu row" aria-labelledby="login-menu">
-                      <li><a class="dropdown-item" href=""><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
-                      <li><a class="dropdown-item" href=""><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Login"><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Sigin"><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
                   </div>
               </div>
             </li>
@@ -126,7 +125,15 @@
 <script>
 export default {
   methods: {
-
+    Home(){
+      this.$router.push({path:"/"}) 
+    },
+    Login(){
+      this.$router.push({path:"/login"})
+    },
+    Sigin(){
+      this.$router.push({path:"/login"})
+    }
   }
 }
 </script>
