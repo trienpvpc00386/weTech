@@ -1,7 +1,9 @@
 <template>
   <div>
         <div class="link-menu">
+
           <a href="javascript:void(0)" @click="backHome" >Trang chủ&emsp;
+
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
           </svg>&emsp;
@@ -11,14 +13,14 @@
         <div class="row">
             <div class="col-sm-3 category">
                 <p><strong>DANH MỤC SẢN PHẨM</strong></p>
-                <a href="#">Sản phẩm mới</a><br>
-                <a href="#">Nước hoa cao cấp</a><br>
-                <a href="#">Thời trang nữ</a><br>
-                <a href="#">Thời trang nam</a><br>
-                <a href="#">Văn phòng phẩm</a><br>
-                <a href="#">Giày nam</a><br>
-                <a href="#">Giày nữ</a><br>
-                <a href="#">Balo</a><br>
+                <a href="javascript:void(0)" @click="Home">Sản phẩm mới</a><br>
+                <a href="javascript:void(0)">Nước hoa cao cấp</a><br>
+                <a href="javascript:void(0)">Thời trang nữ</a><br>
+                <a href="javascript:void(0)">Thời trang nam</a><br>
+                <a href="javascript:void(0)">Văn phòng phẩm</a><br>
+                <a href="javascript:void(0)">Giày nam</a><br>
+                <a href="javascript:void(0)">Giày nữ</a><br>
+                <a href="javascript:void(0)">Balo</a><br>
 
                 <div class="dropdown-divider"></div>
 
@@ -153,9 +155,9 @@
                         <div class="col-sm-3 card">
                             <div class="card-body">
                                 <button class="btn btn-outline-danger">-45%</button>
-                                <a href="productdetail">
+                                <a href="javascript:void(0)" @click="Product_detail">
                                     <img src="../assets/sp2.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
                                 </a>
                                 <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                                 <div class="progress">
@@ -167,7 +169,7 @@
                             <div class="card-body">
                                 <button class="btn btn-outline-danger">-35%</button>
                                 <img src="../assets/sp3.png" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
                                 <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                                 <div class="progress">
                                     <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
@@ -178,7 +180,7 @@
                             <div class="card-body">
                                 <button class="btn btn-outline-danger">-55%</button>
                                 <img src="../assets/sp4.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
                                 <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                                 <div class="progress">
                                     <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
@@ -189,7 +191,7 @@
                             <div class="card-body">
                                 <button class="btn btn-outline-danger">-45%</button>
                                 <img src="../assets/sp2.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
                                 <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                                 <div class="progress">
                                     <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
@@ -200,7 +202,7 @@
                             <div class="card-body">
                                 <button class="btn btn-outline-danger">-55%</button>
                                 <img src="../assets/sp4.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
+                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
                                 <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                                 <div class="progress">
                                     <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
@@ -302,11 +304,10 @@
   </div>
 </template>
 <script>
-
 export default {
     methods:{
         backHome(){
-            this.$router.push({name:"Home"})
+            this.$router.push({path:"/"}) 
         }
     }
 }

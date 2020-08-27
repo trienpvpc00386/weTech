@@ -1,6 +1,5 @@
 <template>
   <div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <nav class="navbar navbar-expand-lg navbar-light" id="header-top">
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto" id="header-top-ul">
@@ -30,7 +29,7 @@
       </nav>
 
       <nav class="navbar navbar-expand-lg navbar-dark" id="header">
-        <a class="navbar-brand" href="#"><img src="../assets/logo.png" width="165px"></a>
+        <a class="navbar-brand" href="javascript:void(0)" @click="Home"><img src="../assets/logo.png" width="165px"></a>
         <button class="navbar-toggler menu-reponsive" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,28 +50,45 @@
               <div class="dropdown">
                 <a class="nav-link" href="#" role="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o"></i> Tài khoản</a>
                   <div class="dropdown-menu row" aria-labelledby="login-menu">
-                      <li><a class="dropdown-item" href=""><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
-                      <li><a class="dropdown-item" href=""><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Login"><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Sigin"><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
                   </div>
               </div>
             </li>
             <li class="nav-item ml-2">
               <div class="dropdown">
-                <a class="btn btn-outline-warning" href="#" role="button" id="products-viewed-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn btn-outline-warning" href="javascript:void(0)" role="button" id="products-viewed-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-bell" style="color: #FF8000"></i> Thông báo <span class="badge badge-warning">3</span>
                 </a>
                 <div class="dropdown-menu row" aria-labelledby="products-viewed-menu">
-                    <li><a class="dropdown-item" href="">Thông báo 1</a></li>
-                    <li><a class="dropdown-item" href="">Thông báo 1</a></li>
-                    <li><a class="dropdown-item" href="">Thông báo 1</a></li>
-                    <li><a class="dropdown-item" href="">Thông báo 1</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Thông báo 1</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Thông báo 1</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Thông báo 1</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Thông báo 1</a></li>
                 </div>
               </div>
             </li>
             <li class="nav-item ml-3">
-              <button type="button" class="btn btn-outline-success">
-                <i class="fa fa-cart-plus"></i> Giỏ hàng <span class="badge badge-warning">3</span>
-              </button>
+              <div class="dropdown">
+                <a type="button" role="button" class="btn btn-outline-success" href="javascript:void(0)" id="cart-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-cart-plus"></i> Giỏ hàng <span class="badge badge-warning">2</span>
+                </a>
+                <div class="dropdown-menu row" aria-labelledby="cart-menu">
+                    <div class="card">
+                      <div class="card-body">
+                        <img src="../assets/sp1.jpg" width="100px">
+                        <p>Nước Hoa</p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <img src="../assets/sp1.jpg" width="100px">
+                        <p>Nước Hoa</p>
+                      </div>
+                    </div>
+                    <li><a class="dropdown-item" href="javascript:void(0)" @click="View_cart"><button class="btn btn-warning btn-block">Xem Giỏ Hàng</button></a></li>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -126,7 +142,18 @@
 <script>
 export default {
   methods: {
-
+    Home(){
+      this.$router.push({path:"/"}) 
+    },
+    Login(){
+      this.$router.push({path:"/login"})
+    },
+    Sigin(){
+      this.$router.push({path:"/login"})
+    },
+    View_cart(){
+      this.$router.push({path:"/cart"})
+    }
   }
 }
 </script>

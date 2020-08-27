@@ -549,7 +549,10 @@ export default {
         goDetail(){
             this.$router.push({path:'/products'})
         }
-    }
+    }/*,
+    created(){
+        this.$alertify.success('Hello');
+    }*/
 }
 </script>
 

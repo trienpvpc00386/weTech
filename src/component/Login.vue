@@ -39,7 +39,7 @@
                             <i class="ni ni-email-83"></i>
                           </span>
                         </div>
-                        <input class="form-control" placeholder="Email" type="email" />
+                        <input class="form-control" placeholder="Email" type="email" v-model="user.username"/>
                       </div>
                     </div>
                     <div class="form-group">
@@ -49,7 +49,7 @@
                             <i class="ni ni-lock-circle-open"></i>
                           </span>
                         </div>
-                        <input class="form-control" placeholder="Password" type="password" />
+                        <input class="form-control" placeholder="Password" type="password" v-model="user.password"/>
                       </div>
                     </div>
                     <div class="custom-control custom-control-alternative custom-checkbox">
@@ -59,7 +59,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-primary my-4">Sign in</button>
+                      <button type="button" class="btn btn-primary my-4" @click="Login">Sign in</button>
                     </div>
                   </form>
                 </div>
@@ -85,15 +85,41 @@
 </template>
 
 <script>
-export default {};
+import axios from 'axios'
+export default {
+    data(){
+    return{
+      user: {
+        username: "",
+        password: ""
+      }
+    }
+  },
+  methods: {
+    Login(){
+      axios.post('http://127.0.0.1:8000/api/login', this.user)
+      .then(function (response) {
+        // handle success
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    }
+  }
+};
 </script>
 
 <style>
 @import url("../assets/css/argon.css");
-/* #loginForm{
+ #loginForm{
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 999;
-} */
+} 
 </style>

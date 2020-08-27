@@ -5,6 +5,9 @@ import { routes } from './routes'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle"
 
+import VueAlertify from 'vue-alertify'
+Vue.use(VueAlertify)
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
