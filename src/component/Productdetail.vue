@@ -1,340 +1,424 @@
 <template>
   <div>
     <div class="link-menu">
-        <a href="products">Trang Chủ&emsp;
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-          </svg>&emsp;
-          </a><a href="products">Sản Phẩm&emsp;
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-          </svg>&emsp;
+        <router-link to="/">
+        <a href="javascript:void(0)">Trang Chủ&emsp;
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+            </svg>&emsp;
+        </a>
+        </router-link>
+        <a href="javascript:void(0)">Sản Phẩm&emsp;
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+            </svg>&emsp;
         </a> 
-        Nước hoa ABC
-      </div>
-    <div class="img-box">    
-      <div class="img-main">
-        <img src="../assets/img/nuoc-hoa.jpg">
-      </div><br>
-      <div class="img-mini">
-        <img id="myImg" src="../assets/img/nuoc-hoa.jpg" alt="Snow">
-      </div>
-      <div class="img-mini">
-        <img id="myImg" src="../assets/img/nuoc-hoa.jpg" alt="Snow">
-      </div>
-      <div class="img-mini">
-        <img id="myImg" src="../assets/img/nuoc-hoa.jpg" alt="Snow">
-      </div>
+          {{data.product_name}}
     </div>
-    <div class="contain-box"><br>
-      <h3>Nước hoa ABC {{ $route.params.id }}</h3>
-      <div class="rate-star">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-        </svg>
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-        </svg>
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-        </svg>
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-        </svg>
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
-        </svg>
-        <a>|</a>
-        <a>2 Đánh Giá</a>
-        <a>|</a>
-        <a>4 Đã Bán</a>
-      </div>
-      <hr><br>        
-      <div class="price">
-        380.000đ
-        <a>Giá thị trường 500.000đ</a>
-      </div><hr><br><br>
-      <div class="row transpot">
-        <div class="col-sm-2"><a>Vận chuyển</a></div>
-          <div class="col-sm-2.8">
-            <a>
-              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gift-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3z"/>
-                <path d="M15 7v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7h6zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9H2.5z"/>
-              </svg>&emsp;
-              Vận chuyển tới
-            </a>
-          </div>
-          <div class="col-sm-3 address">
-            <div class="dropdown">
-            <button type="button" class="address dropdown-toggle" data-toggle="dropdown">
-               Thành phố Sóc Trăng
-             </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Cần Thơ</a>
-              <a class="dropdown-item" href="#">Kiêng Giang</a>
-              <a class="dropdown-item" href="#">Hậu Giang</a>
-             </div>
-          </div>
-        </div>
-      </div>
-      <br><br>
-      <div class="row transpot">
-        <div class="col-sm-2"><a></a></div>
-          <div class="col-sm-2.8"><a>&emsp;&emsp;Phí Vận Chuyển</a></div>
-          <div class="col-sm-3 address">
-            <div class="dropdown">
-            <button type="button" class="address dropdown-toggle" data-toggle="dropdown">
-              Giao hàng nhanh - 30.000đ
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Giao hàng tiết kiệm - 15.000đ</a>
-              <a class="dropdown-item" href="#">J&T Express - 37.000đ</a>
-              <a class="dropdown-item" href="#">Viettel Post - 40.000đ</a>
+
+    <div class="product-detail">
+      <div class="row">
+        <div class="img-box col-sm-6">
+          <div id="custCarousel" class="carousel slide mt-4 row" data-ride="carousel" align="center">
+            <!-- slides -->
+
+            <div class="col-sm-3">
+                <ol class="row">
+                  <div class="col-sm-12 card" id="image_detail_mini" v-for="(image_det, index) in image_detail.slice(0, 4)" :key="index++">
+                    <div class="card-body">
+                      <a id="carousel-selector-0" class="selected" :data-slide-to="index" data-target="#custCarousel">
+                      <img :src="image_det" width="100%" height="100%"> 
+                      </a> 
+                    </div>
+                  </div>
+                </ol>
+            </div>
+
+            <div class="col-sm-9">
+              <div class="carousel-inner">
+                <div class="carousel-item active"> <img :src="product_detail[0].image" alt="Hills"> </div>
+                <div class="carousel-item" v-for="(image_det, index) in image_detail" :key="index"> <img :src="image_det" alt="Hills"> </div>
+              </div> <!-- Left right --> 
+              
+              <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> 
+                <span class="carousel-control-prev-icon"></span> 
+              </a>
+              <a class="carousel-control-next" href="#custCarousel" data-slide="next"> 
+                <span class="carousel-control-next-icon"></span>
+              </a> <!-- Thumbnails -->
+            </div>
+
+            <div class="col-sm-12" id="description"> <br> <br> <hr> <br>
+              <h5>Mô Tả</h5>
+              <p>{{data.description}}</p>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body row">
+                  <div class="col-sm-12">
+                    <h6><li class="fa fa-home"></li> {{data.shop_name}}</h6>
+                  </div>
+                  
+                  <div class="col-sm-12">
+                    
+                      <button class="btn btn-success btn-block" @click="goDetailShop()">Xem shop</button>
+                   
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <br><br>
-      <div class="row transpot">
-        <div class="col-sm-2"><br><a>Số lượng</a></div>
-        <div class="col-sm-8">
-        <input type="number" min="1" max="100" placeholder="1">
-        <a>Còn 69 sản phẩm</a>
+
+        <div class="contain-box col-sm-6"><br>
+          <h3>{{product_detail[0].product_name}}</h3>
+          <div class="rate-star">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
+            </svg>
+            <a>|</a>
+            <a>2 Đánh Giá</a>
+            <a>|</a>
+            <a>4 Đã Bán</a>
+          </div><hr>
+
+          <div class="price">
+            <h2>{{detail_info[select_type].price}} <u>đ</u></h2>
+          </div><hr>
+
+          <div class="row transpot">
+            <div class="col-sm-12">
+              <p style="color: orangered;">Tình trạng: 
+                <span v-if="detail_info[select_type].quantity>0">còn hàng</span>
+                <span v-else>hết hàng</span>
+              </p><br>
+
+              <div class="form-group" v-if="product_detail[0].category==='Điện thoại - Máy tính bảng'">
+                <label for="sel1">Loại Sản Phẩm: </label>
+                <select class="form-control" id="sel1" v-model="select_type" aria-placeholder="chọn loại">
+                  <option  v-for="(select_type, index) in detail_info" :key="index" :value="index">Màu {{select_type.color}},  {{select_type.screen_size}}, {{select_type.memory}}</option>
+                </select>
+              </div> 
+
+              <div class="form-group" v-if="product_detail[0].category==='Điện tử - Điện lạnh'">
+                <label for="sel1">Loại Sản Phẩm: </label>
+                <select class="form-control" id="sel1" v-model="select_type" aria-placeholder="chọn loại">
+                  <option  v-for="(select_type, index) in detail_info" :key="index" :value="index">Màu {{select_type.color}},  {{select_type.screen_size}}, {{select_type.memory}}</option>
+                </select>
+              </div> 
+             
+            </div>
+
+            <div class="col-sm-11 mt-4">
+              <div class="input-group mb-3">
+
+                <button class="btn btn-light">Số lượng: </button>
+
+                <div class="input-group-prepend ml-2">
+                  <input @click="updateCart(data, 'subtract')" class="btn btn-success" type="button" id="button-addon1" value=" - ">
+                </div>
+
+                <input type="text" min="0" :max="detail_info[select_type].quantity" v-model="quantity_cart" class="form-control" placeholder="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                
+                <div class="input-group-append">
+                  <input @click="updateCart(data, 'add')" class="btn btn-success" type="button" id="button-addon2" value=" + ">
+                </div>
+     
+                <button class="btn btn-success ml-2" @click="goCart">Thêm vào giỏ hàng</button>
+
+                <input type="button" class="btn btn-warning ml-2" @click="goWishlist" value="Thêm vào yêu thích">
+              </div>
+            </div>
+
+            <div class="col-sm-12 mt-3">
+              <h5>Thông tin & Khuyến mãi</h5>
+              <p>Đổi trả hàng trong vòng 7 ngày</p>
+              <p>Freeship nội thành Cần Thơ từ 150.000đ*.</p>
+              <p></p>
+            </div>
+
+            <div class="col-sm-12 card mt-4"> 
+              <div class="card-body"> <br>
+                <h5>Chi Tiết Sản Phẩm</h5> <br>
+                <div class="row">
+
+                  <div class="col-sm-3">
+                    <table class="table table-borderless">
+                       <tbody>
+                         <tr v-for="(key, index) in key" :key="index">
+                           <td>{{ key }}:</td>
+                         </tr>
+                       </tbody>
+                     </table>
+                  </div>
+
+                  <div class="col-sm-9">
+                     <table class="table table-striped">
+                       <tbody>
+                         <tr v-for="(value, index) in value" :key="index">
+                           <td>{{ value }}</td>
+                         </tr>
+                       </tbody>
+                     </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <div class="col-sm-12 mt-3">
+          <div class="card">
+            <div class="card-body">
+              <h5>Đánh Giá Sản Phẩm</h5>&emsp;
+              <div class="rate-star">
+                <a>4.5 trên 5</a>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <br><br><br>
-      <button name="add-cart">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-        </svg>
-        Thêm vào giỏ hàng
-      </button>&emsp;
-      <button name="buy">
-        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-        </svg>
-        Mua ngay
-      </button>
+      <Footer/>
     </div>
-    <div class="container">
-      <h5>Chi Tiết Sản Phẩm</h5><br>
-      <div class="row">
-        <div class="col-sm-2"><p>Danh Mục</p></div>
-        <div class="col-sm-8">
-          <p class="link">
-            <a href="#">weTech</a>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-            </svg>
-            <a href="#">Nước Hoa</a>
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-            </svg>
-            <a href="#">Nước Hoa ABC</a>
-          </p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Thương Hiệu</p></div>
-        <div class="col-sm-8 link"><a href="#">weTech</a></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Dạng Sản Phẩm</p></div>
-        <div class="col-sm-8"><p href="#">Dạng lỏng</p></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Dung Tích (ml)</p></div>
-        <div class="col-sm-8"><p href="#">150ml</p></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Giới Tính</p></div>
-        <div class="col-sm-8"><p href="#">Dành cho nam</p></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Xuất Xứ</p></div>
-        <div class="col-sm-8"><p href="#">Việt Nam</p></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Kho Hàng</p></div>
-        <div class="col-sm-8"><p href="#">69</p></div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2"><p>Gửi Từ</p></div>
-        <div class="col-sm-8"><p href="#">Cần Thơ</p></div>
-      </div><hr>
-      <h5>Mô Tả</h5><br>
-      <div class="description">
-        XỊT NƯỚC HOA TOÀN THÂN AXE APOLLO<br>
-        - Sự kết hợp tinh tế giữa cây xô thơm tươi mát và trái mộc qua, cùng vị ngọt ngào của hoa oải hương và gỗ đàn hương nồng ấm, tạo cho các chàng trai sự tự tin chinh phục mọi thử thách <br>
-        - Dành cho chàng trai đam mê chinh phục thử thách<br><br>
-
-        XỊT NƯỚC HOA TOÀN THÂN NAM AXE DARK<br>
-        - Mùi hương ấm áp dành cho các chàng trai quyến rũ một cách nhẹ nhàng <br>
-        - Dành cho chàng trai ngọt ngào<br><br>
-
-        #xitkhumui #axe #xitnuochoa #xitnganmui
-      </div>
-      <br><br><hr>
-      <div class="row">
-        <h5>Đánh Giá Sản Phẩm</h5>&emsp;
-        <div class="rate-star">
-          <a>4.5 trên 5</a>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
-          </svg>
-        </div>
-      </div>
-      <div class="row comment">
-        <div class="col-sm-1">
-          <img class="avt" src="../assets/img/avt.jpg">
-        </div>
-        <div class="col-sm-1.2">
-          <a href="#">Nhã gâu gâu</a>
-          <div class="rate-comment">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
-          </svg>
-          </div>
-        </div>
-        <div class="col-sm-8">&emsp;
-          Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3Sản phẩm ổn trong tầm giá hihi haha hhuhu:3
-        </div>
-      </div>
-      <div class="row comment">
-        <div class="col-sm-1">
-          <img class="avt" src="../assets/img/avt.jpg">
-        </div>
-        <div class="col-sm-1.2">
-          <a href="#">Nhã gâu gâu</a>
-          <div class="rate-comment">
-            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-          </svg>
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
-          </svg>
-          </div>
-        </div>
-        <div class="col-sm-8">&emsp;
-          Sản phẩm ổn trong tầm giá hihi haha hhuhu:3
-        </div>
-      </div>
-     </div>
-    <hr><br>
-    <div class="related-products">
-      <h3>Sản phẩm khác</h3>
-      <div class="featured-products mt-3">
-        <div class="row mt-4 featured-products-all">
-          <div class="col-sm-2 card">
-            <div class="card-body">
-              <button class="btn btn-outline-danger">-45%</button>
-              <img src="../assets/sp2.jpg" width="100%">
-              <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-              <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2 card">
-            <div class="card-body">
-              <button class="btn btn-outline-danger">-45%</button>
-              <img src="../assets/sp2.jpg" width="100%">
-              <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-              <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2 card">
-            <div class="card-body">
-              <button class="btn btn-outline-danger">-45%</button>
-              <img src="../assets/sp2.jpg" width="100%">
-              <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-              <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2 card">
-            <div class="card-body">
-              <button class="btn btn-outline-danger">-45%</button>
-              <img src="../assets/sp2.jpg" width="100%">
-              <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-              <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-2 card">
-            <div class="card-body">
-              <button class="btn btn-outline-danger">-45%</button>
-              <img src="../assets/sp2.jpg" width="100%">
-              <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-              <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-              </div>
-            </div>
-          </div>      
-          <div class="col-sm-2 card">
-            <div class="card-body">
-              <button class="btn btn-outline-danger">-45%</button>
-              <img src="../assets/sp2.jpg" width="100%">
-              <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-              <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-              <div class="progress">
-                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><hr><br><br><br>
-    <Footer/>
   </div>
 </template>
 
 <script>
+import { eventBus } from "../main"
+import axios from 'axios'
 export default {
-  components:{
+  data(){ 
+    return {
+      data              : {},
+      user_id           : {},
+      product_detail    : [],
+      detail_info       : [],
+      cate_idd          : 0,
+      product_type      : [],
+      cart              : [],
+      image_detail      : [],
+      key               : [],
+      value             : [],
+      select_type       : 0,
+      quantity_cart     : 1,
+    }
+    
+  },
+  created(){ 
+
+    this.data = this.$route.params.detail
+
+    this.ProductDetail()
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca   = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+      }
+      return "";
+    } 
+
+    this.user_id = JSON.parse(getCookie("user_id"))
+
+  },
+  methods:{
+    ProductDetail (){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/detail', {id:this.data.product_id})
+      .then(function (response) {
+        re.product_detail = response.data
+        let data          = response.data
+        for(let i in data){
+          re.image_detail.push(data[i].image)
+        }
+        re.productType(data[0].cate_id)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+
+      /////////////////////////////////////////
+      axios.post('http://127.0.0.1:8000/api/detail-info', {id:this.data.product_id})
+      .then(function (response) {
+        let data = response.data
+        re.detail_info = response.data
+        //re.product_detail_info=data[0]
+        let key = Object.keys(data[0])
+        let keyArr = []
+        key.forEach(el => {
+             switch (el) {
+                case "prodetail_id":
+                    keyArr.push("Mã sản phẩm")
+                    break;
+                case "price":
+                    keyArr.push("Giá")
+                    break;
+                case "color":
+                    keyArr.push("Màu")
+                    break;
+                case "quantity":
+                    keyArr.push("Số lượng")
+                    break;
+                case "size":
+                    keyArr.push("Kích thước")
+                    break;
+                case "discount_price":
+                    keyArr.push("Giảm giá")
+                    break;
+                case "origin":
+                    keyArr.push("Xuất xứ")
+                    break;
+                case "accessory":
+                    keyArr.push("Phụ kiện")
+                    break;
+                case "dimension":
+                    keyArr.push("Kích thước")
+                    break;
+                case "weight":
+                    keyArr.push("Cân nặng")
+                    break;
+                case "system":
+                    keyArr.push("Hệ thống")
+                    break;
+                case "material":
+                    keyArr.push("Chất liệu")
+                    break;
+                case "screen_size":
+                    keyArr.push('Cỡ màng hình')
+                    break;
+                case "wattage":
+                    keyArr.push("Công xuất")
+                    break;
+                case "resolution":
+                    keyArr.push("Độ phân giải")
+                    break;
+                case "memory":
+                    keyArr.push("Bộ nhớ")
+                    break;
+                default:
+                    break;
+            }
+        });
+        re.value = Object.values(data[0])
+        re.key = keyArr
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
+    productType (id){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/product-type', {cate_id:id})
+      .then(function (response) {
+        re.product_type = response.data
+        //console.log(response.data)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+    goDetailShop(){
+      this.$router.push({ name: 'detail-shop', params: {detail:this.product_detail[0]}})
+    },
+
+    updateCart(data, updateType){
+        if(updateType === "subtract"){
+            if(this.quantity_cart !== 0){
+              this.quantity_cart--;
+            }
+          }else{
+            this.quantity_cart++;
+          }
+    },
+
+    goCart(){
+      axios.post('http://127.0.0.1:8000/api/add-cart', 
+        {
+          prodetail_id:this.detail_info[this.select_type].prodetail_id,
+          user_id:this.user_id,
+          shop_id:this.product_detail[0].shop_id,
+          cart_quantity:this.quantity_cart
+        })
+      .then(function (response) {
+        if(response.data.error){
+          alert(response.data.error)
+        }else{
+          alert('Thêm Sản Phẩm Thành Công')
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
+    goWishlist(){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/add-wishlist', {
+        user_id   : this.user_id,
+        product_id: this.data.product_id
+        })
+      .then(function (response) {
+        
+        console.log(response.data)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    }
+
   }
 }
 </script>
@@ -358,13 +442,52 @@ export default {
     text-decoration: none;
     color: #4682B4;
   }
-  /* image area */
-  .img-box {
-    height: 100%;
-    width: 46%;
-    float: left;
-    border-right: 1px solid rgb(250, 250, 250);
+  .product-detail{
+    overflow-x:hidden;
+    width: 87%;
+    margin-left: 6.5%;
+    margin-right: 6.5%;
   }
+  /* image area */
+
+  .carousel-inner img {
+    width: cover;
+    max-height: 425px;
+  }
+
+  /* #custCarousel .carousel-indicators {
+      
+  } */
+
+  #image_detail_mini{
+    max-height: 110px;
+  }
+
+  #custCarousel .carousel-indicators>li {
+      width: 200px;
+  }
+
+  #custCarousel .carousel-indicators li img {
+      display: block;
+      opacity: 10;
+  }
+
+  #custCarousel .carousel-indicators li.active img {
+      opacity: 10
+  }
+
+  #custCarousel .carousel-indicators li:hover img {
+      opacity: 10
+  }
+
+  .carousel-item img {
+      width: 100%;
+  }
+
+  #description{
+    text-align: left;
+  }
+
   .img-main {   
     position: absolute;
     margin-left: 18%;
@@ -513,75 +636,23 @@ export default {
   }
   /*All Products*/
 
-    .home{
+  .home{
     background-color: rgb(248,248,248);
-    }
-    .content-home{
-        width: 87%;
-        margin-left: 6.5%;
-        margin-right: 6.5%;
-    }
-    #category {
-        border-radius: 0;
-        box-shadow: 0 0 5px rgb(51, 153, 102);
-    }
-    #category a{
-        border: 0;
-    }
-    .featured-products{
-        width: 87%;
-        margin-left: 6.5%;
-        margin-right: 6.5%;
-    }
-    .featured-products h4{
-        color: rgb(255, 72, 0);
-    }
-    .featured-products h5{
-        color: rgb(255, 30, 0);
-    }
-    .featured-products .card{
-        border: 0;
-        width: 100%;
-    }
-    .featured-products .featured-products-all{
-        background-color: white;
-    }
-    .featured-products .card:hover{
-        width: 110%;
-        box-shadow: 0 4px 4px 4px rgb(236, 236, 236);
-        background-color: rgb(255, 255, 255);
-    }
-    .products-interested{
-        width: 87%;
-        margin-left: 6.5%;
-        margin-right: 6.5%;
-    }
-    .card-body a {
-        text-decoration: none;
-        color: black;
-    }
-    .card-body a:hover {
-        color: rgb(230, 138, 0);
-    }
-    
-  .comment img {
-    height: 30%;
-    border-radius: 70px;
-    text-align: left;
-  }
-  .comment a {
-    text-decoration: none;
-    font-size: 14px;
-    color: black
-  }
-
-  .rate-comment {
-    color:rgb(230, 138, 0);
-    font-size: 10px;
   }
   @media only screen and (max-width:620px) {
     .link-menu, .img-main, .img-mini {
       width:100%;
     }
   }
+
+  .featured-products .featured-products-all{
+    background-color: white;
+}
+.featured-products .card:hover{
+    box-shadow: 0 0 10px rgb(192, 191, 191);
+    background-color: rgb(250,250,250);
+}
+.featured-products-all p:hover{
+    color: rgb(253, 125, 5);
+}
 </style>

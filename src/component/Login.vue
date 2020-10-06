@@ -66,14 +66,16 @@
               </div>
               <div class="row mt-3">
                 <div class="col-6">
-                  <a href="#" class="text-light">
+                  <a href="javascript:void(0)" class="text-light">
                     <small>Quên mật khẩu?</small>
                   </a>
                 </div>
                 <div class="col-6 text-right">
-                  <a href="#" class="text-light">
-                    <small>Tạo tài khoản mới</small>
-                  </a>
+                  <router-link to="/register">
+                    <a href="javascript:void(0)" class="text-light">
+                      <small>Tạo tài khoản mới</small>
+                    </a>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -88,19 +90,36 @@
 import axios from 'axios'
 export default {
     data(){
-    return{
-      user: {
-        username: "",
-        password: ""
+      return{
+        user: {
+          username: "",
+          password: ""
+        },
+
       }
-    }
   },
   methods: {
     Login(){
       axios.post('http://127.0.0.1:8000/api/login', this.user)
       .then(function (response) {
-        // handle success
-        console.log(response.data);
+        if(response.data.error){
+          alert(response.data.error)
+        }else{
+          response.data.forEach(abc => {
+
+            var user = JSON.stringify(abc) 
+            document.cookie = `user=${user}; max-age=600`
+            document.cookie = `user_id=${abc.user_id}; max-age=600`
+            //console.log(abc)
+            if(abc.role === "Admin"){
+              alert("Hello admin")          
+            }
+            else if(abc.role === "User"){
+              window.location="http://localhost:8080";
+            }
+          })
+        }
+
       })
       .catch(function (error) {
         // handle error

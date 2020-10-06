@@ -1,11 +1,14 @@
 <template>
     <div>
         <div class="link-menu">
-          <a href="/">Trang chủ&emsp;
-          <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-          </svg>&emsp;
-          </a> 
+          <router-link 
+          to="/">
+            <a href="javascript:void(0)">Trang chủ&emsp;
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+              </svg>&emsp;
+            </a> 
+          </router-link>
           Cart
         </div>
 
@@ -26,53 +29,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="cart-pic first-row"><img src="../assets/sp1.jpg" width="50%"></td>
+                                    <tr v-for="(sp, index) in cart" :key="index">
+                                        <td class="cart-pic first-row"><img :src="sp.image" width="50%"></td>
                                         <td class="cart-title first-row">
-                                            <h5>Pure Pineapple</h5>
+                                            <h5>{{sp.name}}</h5>
                                         </td>
-                                        <td class="p-price first-row">$60.00</td>
+                                        <td class="p-price first-row">{{sp.price}}</td>
                                         <td class="qua-col first-row">
                                             <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
+                                                <input type="button" @click="updateCart(sp, 'subtract')" class="btn btn-outline-info" value=" - ">
+                                                <div class="">
+                                                    <input type="text" class="form-control" v-model="sp.cart_quantity">
                                                 </div>
+                                                <input type="button" @click="updateCart(sp, 'add')" class="btn btn-outline-info" value=" + ">
                                             </div>
                                         </td>
-                                        <td class="total-price first-row">$60.00</td>
+                                        <td class="total-price first-row">{{sp.price * sp.cart_quantity}}</td>
                                         <td class="close-td first-row"><i class="ti-close"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-pic"><img src="../assets/sp1.jpg" width="50%"></td>
-                                        <td class="cart-title">
-                                            <h5>American lobster</h5>
-                                        </td>
-                                        <td class="p-price">$60.00</td>
-                                        <td class="qua-col">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="total-price">$60.00</td>
-                                        <td class="close-td"><i class="ti-close"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart-pic"><img src="../assets/sp1.jpg" width="50%"></td>
-                                        <td class="cart-title">
-                                            <h5>Guangzhou sweater</h5>
-                                        </td>
-                                        <td class="p-price">$60.00</td>
-                                        <td class="qua-col">
-                                            <div class="quantity">
-                                                <div class="pro-qty">
-                                                    <input type="text" value="1">
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="total-price">$60.00</td>
-                                        <td class="close-td"><i class="ti-close"></i></td>
+                                        <td class="p-price first-row"><input  @click="removeItem(index)"  type="button" class="btn btn-danger" value="X"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -81,10 +55,14 @@
                             <div class="col-lg-4 offset-lg-4">
                                 <div class="proceed-checkout">
                                     <ul>
-                                        <li class="subtotal">TỔNG TIỀN <span>$240.00</span></li>
-                                        <li class="cart-total">SỐ TIỀN PHẢI TRẢ <span>$240.00</span></li>
+                                        <li class="subtotal">TỔNG TIỀN <span>{{totalQuantity}}</span></li>
+                                        <li class="cart-total">SỐ TIỀN PHẢI TRẢ <span>{{totalQuantity}}</span></li>
                                     </ul>
-                                    <a href="javascript:void(0)" class="proceed-btn" @click="CheckOut_Cart">THANH TOÁN</a>
+                                    <router-link 
+                                    to="/checkout"
+                                    >
+                                        <a href="javascript:void(0)" class="proceed-btn" @click="checkOutCart">THANH TOÁN</a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -96,12 +74,82 @@
 </template>
 
 <script>
+import { eventBus } from "../main"
+import axios from 'axios'
 export default {
-    methods:{
-        CheckOut_Cart(){
-            this.$router.push({path:"/CheckOut"})
-        }
+  data(){
+    return {
+      user_id : {},
+      cart    : [],
+      // fncart  : []
     }
+  },
+  created(){ 
+
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+          if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+      }
+      return "";
+    } 
+
+    this.user_id = JSON.parse(getCookie("user_id"))
+
+    this.Product_Cart()
+  },
+  computed:{
+      totalQuantity(){
+      return this.cart.reduce(
+        (total, sp) => total + sp.cart_quantity * sp.price,
+        0
+      )
+    }
+  },
+  methods:{
+    Product_Cart(){
+      var re = this
+      console.log(this.user_id)
+      axios.post('http://127.0.0.1:8000/api/get-cart', {user_id:this.user_id})
+      .then(function (response) {
+        //console.log(response.data)
+        re.cart = response.data
+        //re.updateCart(sp, updateType)
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+    updateCart(sp, updateType){
+      for (let i = 0; i < this.cart.length; i++){
+        if(this.cart[i].prodetail_id === sp.prodetail_id){
+          if(updateType === "subtract"){
+            if(this.cart[i].cart_quantity !== 0){
+              this.cart[i].cart_quantity--;
+            }
+          }
+          else{
+            this.cart[i].cart_quantity++;
+          }
+
+          break;
+        }
+      }
+    },
+    removeItem(index){
+      this.$delete(this.cart, index);
+    },
+    checkOutCart(){
+      this.$router.push({ name: 'checkout', params: {order:this.cart, user_id:this.user_id}})
+    }
+  }
 }
 </script>
 

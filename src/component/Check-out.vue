@@ -8,9 +8,9 @@
           </a> 
           Cart
         </div>
-        <div class="mt-5">
+        <div class="checkout">
             <div class="container">
-                <form action="#" class="checkout-form">
+                <form class="checkout-form" role="form">
                     <div class="row">
                         <div class="col-lg-6">
                             <h4>Chi Tiết Thanh Toán</h4>
@@ -19,13 +19,9 @@
                                     <label for="fir">Họ và Tên<span>*</span></label>
                                     <input type="text" id="fir">
                                 </div>
-                                <div class="col-lg-12">
-                                    <label for="street">Địa chỉ<span>*</span></label>
-                                    <input type="text" id="street" class="street-first">
-                                </div>
-                                <div class="col-lg-12">
-                                    <label for="town">Thành Phố<span>*</span></label>
-                                    <input type="text" id="town">
+								<div class="col-lg-12">
+                                    <label for="street">Địa Chỉ<span>*</span></label>
+                                    <input type="text" v-model="check_order.address" id="street" class="street-first">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="email">Email <span>*</span></label>
@@ -47,30 +43,13 @@
                                 <div class="order-total">
                                     <ul class="order-table">
                                         <li>Sản Phẩm <span>Giá</span></li>
-                                        <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                        <li class="fw-normal">Combination x 1 <span>$60.00</span></li>
-                                        <li class="fw-normal">Combination x 1 <span>$120.00</span></li>
-                                        <li class="fw-normal">Subtotal <span>$240.00</span></li>
-                                        <li class="total-price">Total <span>$240.00</span></li>
+                                        <li class="fw-normal" v-for="(product, index) in checkout" :key="index"><img :src="product.image" width="40px"> {{product.name}} x {{product.cart_quantity}} <span>{{product.price * product.cart_quantity}}</span></li> 
                                     </ul>
-                                    <div class="payment-check">
-                                        <div class="pc-item">
-                                            <label for="pc-check">
-                                                Cheque Payment
-                                                <input type="checkbox" id="pc-check">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
-                                        <div class="pc-item">
-                                            <label for="pc-paypal">
-                                                Paypal
-                                                <input type="checkbox" id="pc-paypal">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                        </div>
+                                    <div>
+                                        <h4>SỐ TIỀN PHẢI TRẢ: {{totalQuantity}}</h4>
                                     </div>
                                     <div class="order-btn">
-                                        <button type="submit" class="site-btn place-btn">Place Order</button>
+                                        <input type="button" class="btn btn-success" @click="checkOrder" value="THANH TOÁN">
                                     </div>
                                 </div>
                             </div>
@@ -83,12 +62,61 @@
 </template>
 
 <script>
+import { eventBus } from "../main"
+import axios from 'axios'
 export default {
-methods:{
+    data(){
+        return {
+            checkout   :[],
+			user_id    :{},
+			check_order:{
+				user_id     : '',
+				address     : '',
+				shipping    : 100,
+				total       : '',
+				order_detail: '' 
+			}
+        }
+    },
+    created(){
+        this.checkout = this.$route.params.order
+		this.user_id  = this.$route.params.user_id
+		
+		this.check_order.user_id      = this.user_id
+		this.check_order.order_detail = JSON.stringify(this.checkout)
+		this.check_order.total        = this.totalQuantity
+    },
+    methods:{
         backHome(){
             this.$router.push({path:"/"}) 
-        }
+		},
+		checkOrder(){
+			axios.post('http://127.0.0.1:8000/api/add-order', this.check_order)
+			.then(function (response) {	
+				if(response.data.success){
+					alert(response.data.success)
+				}
+				else if(response.data.error){
+					alert(response.data.error)
+				}
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			})
+			.then(function () {
+				// always executed
+			});
+		}
+	},
+    computed:{
+      totalQuantity(){
+      return this.checkout.reduce(
+        (total, product) => total + product.cart_quantity * product.price,
+        0
+      )
     }
+  }
 }
 </script>
 
@@ -114,6 +142,10 @@ methods:{
 /*---------------------
   Check Out
 -----------------------*/
+
+.checkout{
+    top: 100px
+}
 
 .checkout-section {
 	padding-top: 80px;

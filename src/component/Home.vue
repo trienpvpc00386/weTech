@@ -1,108 +1,15 @@
 <template>
   <div class="home">
       <div class="row content-home">
-          <div class="">
-              <div class="list-group" id="category">
+          <div class="" id="v-for-object">
+              <div class="list-group" id="category" v-for="(a, index) in danhmuc" :key="index">
                 <div class="dropdown">
-                    <a href="#">
-                        <a href="#" class="list-group-item list-group-item-action" id="danhmuc" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-tablet"></i>  Điện Thoại - Máy Tính Bảng</a>
+                    <a href="javascript:void(0)">
+                        <a href="javascript:void(0)" class="list-group-item list-group-item-action" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ a.dslon }}</a>
                     </a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-television"></i> Điện Tử - Điện Lạnh</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc2">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-headphones"></i> Phụ Kiện - Thiết Bị Số</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc3">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-laptop"></i> Laptop - Thiết Bị IT</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc4">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-camera"></i> Máy Ảnh - Quay Phim</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc5">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc6" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-sun-o"></i> Điện Gia Dụng</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc6">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc7" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-cutlery"></i> Nhà Cửa Đời Sống</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc7">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-lemon-o"></i> Hàng Tiêu Dùng - Thực Phẩm</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc8">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc9" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-tint"></i> Làm Đẹp - Sức Khỏe</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc9">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="list-group-item list-group-item-action" id="danhmuc10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user-o"></i> Thời Trang - Phụ Kiện</a>
-                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="danhmuc10">
-                        <a class="dropdown-item" href="#"><b>Xu hướng</b></a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy S20 Plus</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy A51</a>
-                        <a class="dropdown-item" href="#">Samsung Galaxy M11</a>
+                    <div class="dropdown-menu" id="sub-categories" aria-labelledby="" >
+                        <a class="dropdown-item" href="javascript:void(0)" v-for="(b, index) in a.dscon" :key="index">{{b.title}}</a>
                     </div>
                 </div>
             </div>
@@ -120,13 +27,10 @@
                 <!-- The slideshow -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="../assets/banner/banner1.png" width="100%">
+                        <img :src="slideshow[0].link_image" width="100%" id="slide_image">
                     </div>
-                    <div class="carousel-item">
-                    <img src="../assets/banner/banner2.png" width="100%">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="../assets/banner/banner3.jpg" width="100%">
+                    <div class="carousel-item" v-for="(slide, index) in slideshow" :key="index">
+                        <img :src="slide.link_image" width="100%" id="slide_image">
                     </div>
                 </div>
 
@@ -140,144 +44,35 @@
 
                 </div>
           </div>
+          
+          <div class="col-sm-3 mt-2">
+              <div class="row">
+                  <img class="col-sm-12" src="https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685901/ip11_o58u8y.png" width="100%">
+                  <img class="col-sm-12" src="https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/ghe_pvyoss.png" width="100%">
+                  <img class="col-sm-12" src="https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685901/ip11_o58u8y.png" width="100%">
+                  <img class="col-sm-12" src="https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/ghe_pvyoss.png" width="100%">
+
+              </div>
+          </div>
       </div> 
 
       <!-- Featured products --> 
 
       <div class="featured-products mt-4">
-          <h4 class=""><i><b class="mt-2">Khuyến Mãi Hôm Nay</b></i></h4><hr>
+          <h4 class=""><b><i class="mt-2">Khuyến Mãi Hôm Nay - </i> 10 : 24 : 30  </b></h4><hr>
           <div class="row mt-4 featured-products-all">
-              <div class="col-sm-2 card" @click="goDetail">
-                  <div class="card-body" >
+              <div class="col-sm-2 card" id="body_product_image" v-for="(product, index) in products" v-bind:key="index">
+                  <div class="card-body" @click="goDetail(product)">
                       <button class="btn btn-outline-danger">-45%</button>
 
-                      <a href="javascript:void(0)"><img src="../assets/sp2.jpg" width="100%"></a>
+                      <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
                       
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-outline-danger">-35%</button>
-                      <img src="../assets/sp3.png" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-outline-danger">-55%</button>
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-outline-danger">-45%</button>
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-outline-danger">-55%</button>
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-outline-danger">-45%</button>
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-danger">-45%</button>
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-danger">-35%</button>
-                      <img src="../assets/sp3.png" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-danger">-55%</button>
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-danger">-45%</button>
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-danger">-55%</button>
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <button class="btn btn-danger">-45%</button>
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                      <div id="name_product">
+                        <p>{{ product.product_name }}</p>
+                        <h6>{{ product.price }}<u> đ</u></h6> 
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                        </div>
                       </div>
                   </div>
               </div>
@@ -376,121 +171,12 @@
       <div class="products-for-you mt-5">
           <h4>SẢN PHẨM DÀNH CHO BẠN</h4>
           <div class="row mt-4 products-for-you-all">
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp3.png" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp3.png" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp4.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                      <div class="progress">
-                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-2 card">
-                  <div class="card-body">
-                      <img src="../assets/sp2.jpg" width="100%">
-                      <p>Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</p>
-                      <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+              <div class="col-sm-2 card" v-for="(product, index) in products" v-bind:key="index">
+                  <div class="card-body" @click="goDetail(product)">
+                      <button class="btn btn-outline-danger">-45%</button>
+                      <a href="javascript:void(0)"><img :src="product.image" width="100%"></a>                    
+                      <p>{{ product.product_name }}</p>
+                      <h6>{{ product.price }}.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
                       <div class="progress">
                         <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
                       </div>
@@ -543,124 +229,338 @@
 </template>
 
 <script>
-
+import axios from 'axios'
+import {RouterLink} from '../main'
 export default {
-    methods:{
-        goDetail(){
-            this.$router.push({path:'/products'})
-        }
-    }/*,
+    name : "app",   
+        data() {
+        return {
+            danhmuc  :[
+                {
+                    "dslon": "Điện Thoại - Máy Tính Bảng",
+                    "danhmuc2": "danhmuc",
+                    "dscon": [
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                    ]
+                },
+                {
+                    "dslon": "Điện Tử - Điện Lạnh",
+                    "danhmuc2": "danhmuc2",
+                    "dscon": [
+                        {title: 'Tivi bán chạy'},
+                        {title: 'Tivi Mới'},
+                        {title: 'Tivi bán chạy'},
+                        {title: 'Tivi Mới'},
+                        {title: 'Tivi bán chạy'},
+                        {title: 'Tivi Mới'},
+                        {title: 'Tivi bán chạy'},
+                        {title: 'Tivi Mới'},
+                        {title: 'Tivi Mới'},
+                    ]
+                },
+                {
+                    "dslon": "Phụ Kiện - Thiết Bị Số",
+                    "danhmuc2": "danhmuc3",
+                    "dscon": [
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                        {title: 'Tai nghe nhét tai'},
+                    ]
+                },
+                {
+                    "dslon": "Laptop - Thiết Bị IT",
+                    "danhmuc2": "danhmuc4",
+                    "dscon": [
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                        {title: 'Chuột máy tính'},
+                    ]
+                },
+                {
+                    "dslon": "Máy Ảnh - Máy Quay Phim",
+                    "danhmuc2": "danhmuc5",
+                    "dscon": [
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                        {title: 'Máy Ảnh Canon'},
+                    ]
+                },
+                {
+                    "dslon": "Điện Gia Dụng",
+                    "danhmuc2": "danhmuc6",
+                    "dscon": [
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                    ]
+                },
+                {
+                    "dslon": "Làm Đẹp - Sức Khỏe",
+                    "danhmuc2": "danhmuc7",
+                    "dscon": [
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                    ]
+                },
+                {
+                    "dslon": "Thời Trang - Phụ Kiện",
+                    "danhmuc2": "danhmuc8",
+                    "dscon": [
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                    ]
+                },
+                {
+                    "dslon": "Nhà Cửa - Đời Sống",
+                    "danhmuc2": "danhmuc9",
+                    "dscon": [
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                    ]
+                },
+                {
+                    "dslon": "Hàng Tiêu Dùng - Thực Phẩm",
+                    "danhmuc2": "danhmuc9",
+                    "dscon": [
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                        {title: 'Samsung Galaxy S20 Plus'},
+                    ]
+                }
+            ],
+            products : [],
+            slideshow: [
+                {
+                    "id"        : "001",
+                    "name_image": "hinh1",
+                    "link_image": "https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/nuochoa_tngbau.png"
+                },
+                {
+                    "id"        : "002",
+                    "name_image": "hinh2",
+                    "link_image": "https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/fashion_u7qkiz.png"
+                },
+                {
+                    "id"        : "001",
+                    "name_image": "hinh3",
+                    "link_image": "https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/shoes_rrvkdq.png"
+                }
+            ],
+        showCart: false
+        }    
+    }, 
     created(){
-        this.$alertify.success('Hello');
-    }*/
+        this.Product()
+    },
+    methods:{
+        goDetail(p){
+            this.$router.push({ name: 'product-detail', params: { detail: p } })
+        },
+        Product (){
+            let re = this
+            axios.post('http://localhost:8000/api/product')
+            .then(function (response) {
+                re.products = response.data
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+        }
+    },  
+    
 }
 </script>
 
 <style>
-.home{
-    background-color: rgb(248,248,248);
-}
-.content-home{
-    width: 87%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-}
-#category {
-    border-radius: 0;
-    box-shadow: 0 0 5px rgb(51, 153, 102);
-}
-#category a{
-    border: 0;
-}
-.dropdown:hover>.dropdown-menu {
-  display: block;
-}
-#sub-categories{
-    margin-left: 266px;
-    margin-top: -50px;
-}
-.dropdown>.dropdown-toggle:active {
-  /*Without this, clicking will make it sticky*/
-    pointer-events: none;
-}
-.featured-products{
-    width: 87%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-}
-.featured-products h4{
-    color: rgb(255, 72, 0);
-}
-.featured-products h5{
-    color: rgb(255, 30, 0);
-}
-.featured-products .card{
-    border: 0;
-    width: 100%;
-}
-.featured-products .featured-products-all{
-    background-color: white;
-}
-.featured-products .card:hover{
-    box-shadow: 0 0 10px rgb(192, 191, 191);
-    background-color: rgb(250,250,250);
-}
-.featured-products-all p:hover{
-    color: rgb(253, 125, 5);
-}
-.products-interested{
-    width: 87%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-}
-.products-interested .card{
-    border: 0;
-}
-.key-hot{
-    width: 87%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-}
-.key-hot>.row{
-    background-color: white;
-}
-.products-for-you{
-    width: 87%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-}
-.products-for-you .card{
-    border: 0;
-    width: 100%;
-}
-.products-for-you .products-for-you-all{
-    background-color: white;
-}
-.products-for-you .card:hover{
-    box-shadow: 0 0 10px rgb(192, 191, 191);
-    background-color: rgb(250,250,250);
-}
-.products-for-you-all p:hover{
-    color: rgb(253, 125, 5);
-}
-.products-you-viewed{
-    width: 87%;
-    margin-left: 6.5%;
-    margin-right: 6.5%;
-}
-.products-you-viewed .card{
-    border: 0;
-    width: 100%;
-}
-.products-you-viewed .products-you-viewed-all{
-    background-color: white;
-}
-.products-you-viewed .card:hover{
-    box-shadow: 0 0 10px rgb(192, 191, 191);
-    background-color: rgb(250,250,250);
-}
-.products-you-viewed-all p:hover{
-    color: rgb(253, 125, 5);
-}
+    #slide_image{
+        background-size:contain;
+        background-color: white;
+    }
+    .home{
+        background-color: rgb(248,248,248);
+    }
+    .content-home{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    #category {
+        border-radius: 0;
+        box-shadow: 0 0 5px rgb(51, 153, 102);
+    }
+    #category a{
+        border: 0;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    #category a:hover{
+        background-color: rgb(255, 175, 1);
+        color: white;
+    }
+    .dropdown:hover>.dropdown-menu {
+    display: block;
+    }
+    #sub-categories{
+        margin-left: 322px;
+        margin-top: -551px;
+        width: 650px;
+        height: 450px;
+        position: fixed;
+    }
+    .dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+    .featured-products{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .featured-products h4{
+        color: rgb(255, 72, 0);
+    }
+    .featured-products h5{
+        color: rgb(255, 30, 0);
+    }
+    .featured-products .card{
+        border: 0;
+        width: 100%;
+    }
+    .featured-products-all>.card{
+        width: 100%;
+    }
+    #body_product_image img{
+        max-width: 150px;
+        max-height: 150px;
+        background-size: cover;
+        
+    }
+    .featured-products .featured-products-all{
+        background-color: white;
+    }
+    .featured-products .card:hover{
+        box-shadow: 0 0 10px rgb(192, 191, 191);
+        background-color: rgb(250,250,250);
+    }
+    .featured-products-all p:hover{
+        color: rgb(253, 125, 5);
+    }
+    .products-interested{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .products-interested .card{
+        border: 0;
+    }
+    .key-hot{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .key-hot>.row{
+        background-color: white;
+    }
+    .products-for-you{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .products-for-you .card{
+        border: 0;
+        width: 100%;
+    }
+    .products-for-you .products-for-you-all{
+        background-color: white;
+    }
+    .products-for-you .card:hover{
+        box-shadow: 0 0 10px rgb(192, 191, 191);
+        background-color: rgb(250,250,250);
+    }
+    .products-for-you-all p:hover{
+        color: rgb(253, 125, 5);
+    }
+    .products-you-viewed{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .products-you-viewed .card{
+        border: 0;
+        width: 100%;
+    }
+    .products-you-viewed .products-you-viewed-all{
+        background-color: white;
+    }
+    .products-you-viewed .card:hover{
+        box-shadow: 0 0 10px rgb(192, 191, 191);
+        background-color: rgb(250,250,250);
+    }
+    .products-you-viewed-all p:hover{
+        color: rgb(253, 125, 5);
+    }
 
 </style>
