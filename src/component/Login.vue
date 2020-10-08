@@ -108,8 +108,8 @@ export default {
           response.data.forEach(abc => {
 
             var user = JSON.stringify(abc) 
-            document.cookie = `user=${user}; max-age=600`
-            document.cookie = `user_id=${abc.user_id}; max-age=600`
+            document.cookie = `user=${user}; max-age=6000`
+            document.cookie = `user_id=${abc.user_id}; max-age=6000`
             //console.log(abc)
             if(abc.role === "Admin"){
               alert("Hello admin")          

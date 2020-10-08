@@ -31,6 +31,15 @@
                   <label>Tên shop<span></span></label>
                   <input type="text" v-model="re_shop.shop_name" class="form-control">
                 </div>
+                <div class="form-group">
+                  <label>Chọn Tỉnh/Thành Phố:</label>
+                  <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
                 <div class="col-lg-12">
                   <label>Địa chỉ<span></span></label>
                   <input type="text" v-model="re_shop.address" class="form-control">
@@ -60,7 +69,8 @@ export default {
         user_id      : '', 
         location     : '{lat: 35.510605000000055, lng: -82.52646499999997}',
         phone_number : ''
-      }
+      },
+      city:[]
     }
   },
   created(){
@@ -78,6 +88,8 @@ export default {
     } 
 
     this.re_shop.user_id = JSON.parse(getCookie("user_id"))
+
+    this.City()
   },
   methods:{
     ReShop(){
@@ -89,6 +101,22 @@ export default {
         else if(response.data.error){
           alert(response.data.error)
         }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
+    City(){
+      let re = this
+      axios.get('https://thongtindoanhnghiep.co/api/city')
+      .then(function (response) {
+        re.city = response.data
+        console.log(response.data)
       })
       .catch(function (error) {
         // handle error

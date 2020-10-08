@@ -51,7 +51,7 @@
               </div>
             </form>
             <li class="nav-item">
-              <a class="nav-link" href="#"><i class="	fa fa-heart" style="color: red"></i> Yêu thích</a>
+                <a class="nav-link" href="javascript:void(0)" @click="Wishlist_product"><i class="	fa fa-heart" style="color: red"></i> Yêu thích</a>
             </li>
             <li class="nav-item ml-2">
               <div class="dropdown">
@@ -97,6 +97,7 @@
                   <div class="dropdown-menu row" aria-labelledby="login-menu">
                       <li><a class="dropdown-item" href="javascript:void(0)" @click="Login"><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
                       <li><a class="dropdown-item" href="javascript:void(0)" @click="Sigin"><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0)" @click="UpdateAccount"><button class="btn btn-warning btn-block">Cập nhật Tài Khoản</button></a></li>
                       <li><a class="dropdown-item" href="javascript:void(0)" @click="Logout"><button class="btn btn-warning btn-block">Đăng Xuất</button></a></li>
                   </div>
               </div>
@@ -169,6 +170,7 @@
 <script>
 import jquery from 'jquery'
 import Chat from '../component/Chat'
+import {eventBus} from './../main'
 export default {
   data(){
     return {
@@ -207,12 +209,19 @@ export default {
     },
     Search(){
       this.$router.push({name:"search-product", params:{search:this.search.txtsearch}})
+      // eventBus.$emit("search-keyword",this.search.txtsearch)
     },
     Login(){
       this.$router.push({path:"/login"})
     },
     Sigin(){
       this.$router.push({path:"/register"})
+    },
+    UpdateAccount(){
+      this.$router.push({path:"/update-account"})
+    },
+    Wishlist_product(){
+      this.$router.push({path:"/wishlist-product"})
     },
     View_cart(){
       this.$router.push({path:"/cart"})
@@ -238,7 +247,7 @@ export default {
     color: white;
   }
   #header-top>div>ul{
-    margin-left: 13%;
+    margin-left: auto;
   }
   #header-top-ul li a i{
     color: rgb(238, 255, 0);
@@ -249,7 +258,7 @@ export default {
     padding-top: 10px;
   }
   #header>a{
-    margin-left: 6%;
+    margin: auto;
   }
   #header .menu-reponsive{
     color: rgb(0, 204, 153);

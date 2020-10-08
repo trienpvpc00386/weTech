@@ -1,54 +1,59 @@
 <template>
-  <div>
-      <div>
-          <div class="featured-products mt-4">
-            <h4 class=""><b class="mt-2">Sản phẩm được tìm kiếm bằng từ khóa - </b><i> {{keys}}  </i></h4><hr>
-            <div class="row mt-4 featured-products-all">
-                <div class="col-sm-2 card" id="body_product_image" v-for="(product, index) in products" v-bind:key="index">
-                    <div class="card-body" @click="goDetail(product)">
-                        <button class="btn btn-outline-danger">-45%</button>
+    <div>
+        <div>
+            <div class="featured-products mt-4">
+                <h4 class=""><b class="mt-2">Sản phẩm được tìm kiếm bằng từ khóa - </b><i> {{keys}}  </i></h4><hr>
+                <div class="row mt-4 featured-products-all">
+                    <div class="col-sm-2 card" id="body_product_image" v-for="(product, index) in products" v-bind:key="index">
+                        <div class="card-body" @click="goDetail(product)">
+                            <button class="btn btn-outline-danger">-45%</button>
 
-                        <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
-                        
-                        <div id="name_product">
-                            <p>{{ product.product_name }}</p>
-                            <h6>{{ product.price }}<u> đ</u></h6> 
-                            <div class="progress">
-                                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                            <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
+                            
+                            <div id="name_product">
+                                <p>{{ product.product_name }}</p>
+                                <h6>{{ product.price }}<u> đ</u></h6> 
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
-  </div>
+    </div>
 </template>
 
 <script>
 import axios from 'axios'
+import { eventBus } from '../main'
 export default {
     data(){
         return{
-            keys            :{},
+            keys            :"",
             products        :[],
             product_category:[],
             product_cate    :[]
         }
     },
     created(){
-        this.keys = this.$route.params.search
+        // this.keys = this.$route.params.search
+        
 
         this.Product()
 
-        this.Product_Category()
+        // this.Product_Category()
 
-        this.Product_Cate()
+        // this.Product_Cate()
+
+        this.search()
+
     },
     methods:{
         Product(){
             let re = this
-            axios.post('http://127.0.0.1:8000/api/search-product', {keywords:this.keys})
+            axios.post('http://127.0.0.1:8000/api/search-product', {keywords:this.$route.params.search})
             .then(function (response) {
                 re.products = response.data
             })
@@ -87,6 +92,11 @@ export default {
             .then(function () {
                 // always executed
             });
+        },
+        search(){
+            eventBus.$on("search-keyword",(data)=>{
+                // this.Product(data)
+            })
         }
     }
 }

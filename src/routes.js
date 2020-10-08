@@ -11,6 +11,8 @@ import ProductShop from './component/Product-shop'
 import SalesChannel from './component/Sales-channel'
 import SearchProduct from './component/Search-Product'
 import Contact from './component/Contact'
+import UpdateAccount from './component/Update-Account'
+import WishlistProduct from './component/Wishlist-product'
 
 export const RouterLink = "http://127.0.0.1:8000/api"
 
@@ -39,7 +41,10 @@ export const routes = [{
 
     { path: '/contact', name: "contact", component: Contact },
 
+    { path: '/wishlist-product', name: "wishlist-product", component: WishlistProduct },
+
     // Route shop
     { path: '/login', name: "login", component: Login },
-    { path: '/register', name: "register", component: Register }
+    { path: '/register', name: "register", component: Register },
+    { path: '/update-account', name: "update-account", component: UpdateAccount },
 ]

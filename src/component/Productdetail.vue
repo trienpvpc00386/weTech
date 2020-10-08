@@ -407,8 +407,12 @@ export default {
         product_id: this.data.product_id
         })
       .then(function (response) {
-        
-        console.log(response.data)
+          if(response.data.success){
+            alert(response.data.success)
+          }
+          else if(response.data.error){
+            alert(response.data.error)
+          }
       })
       .catch(function (error) {
         // handle error
