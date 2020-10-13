@@ -12,6 +12,7 @@ export const eventBus = new Vue()
 
 export const RouterLink = "http://127.0.0.1:8000/api"
 
+
 Vue.use(VueAlertify)
 
 Vue.use(VueRouter)

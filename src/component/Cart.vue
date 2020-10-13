@@ -112,7 +112,7 @@ export default {
   methods:{
     Product_Cart(){
       var re = this
-      console.log(this.user_id)
+      //console.log(this.user_id)
       axios.post('http://127.0.0.1:8000/api/get-cart', {user_id:this.user_id})
       .then(function (response) {
         //console.log(response.data)

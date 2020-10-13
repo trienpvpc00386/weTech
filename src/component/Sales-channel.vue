@@ -31,21 +31,12 @@
                   <label>Tên shop<span></span></label>
                   <input type="text" v-model="re_shop.shop_name" class="form-control">
                 </div>
-                <div class="form-group">
-                  <label>Chọn Tỉnh/Thành Phố:</label>
-                  <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                </div>
                 <div class="col-lg-12">
                   <label>Địa chỉ<span></span></label>
                   <input type="text" v-model="re_shop.address" class="form-control">
                 </div>
                 <div class="col-lg-12"> <br>
-                  <input class="btn btn-success btn-block" @click="ReShop" value="ĐĂNG KÝ">
+                  <input class="btn btn-success btn-block" type="button" @click="ReShop" value="ĐĂNG KÝ">
                 </div>
               </div>
             </form>
@@ -67,15 +58,14 @@ export default {
         identity_card: '',
         address      : '',
         user_id      : '', 
-        location     : '{lat: 35.510605000000055, lng: -82.52646499999997}',
+        location     : '',
         phone_number : ''
       },
-      city:[]
+      city:[],
+      location_big   :{}  
     }
   },
   created(){
-    //this.re_shop.location = '{lat: 35.510605000000055, lng: -82.52646499999997}'
-
     function getCookie(cname) {
       var name = cname + "=";
       var ca   = document.cookie.split(';');
@@ -89,21 +79,38 @@ export default {
 
     this.re_shop.user_id = JSON.parse(getCookie("user_id"))
 
-    this.City()
+    //this.City()
   },
   methods:{
+    // City(){
+    //   let re = this 
+    //   axios.get('https://thongtindoanhnghiep.co/api/city')
+    //   .then(function (response) {
+    //     console.log(response.data)
+    //     re.city = response.data
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   })
+    //   .then(function () {
+    //     // always executed
+    //   });
+    // },
+
     ReShop(){
-      axios.post('http://127.0.0.1:8000/api/add-shop', this.re_shop)
+      let re = this
+      axios.get('https://nominatim.openstreetmap.org/search/'+this.re_shop.address+'?format=json&addressdetails=1&limit=1&polygon_svg=1')
       .then(function (response) {
-        if(response.data.success){
-          alert(response.data.success)
+        re.location_big = response.data[0]
+        
+        let location = {
+          lat: re.location_big.lat,
+          lon: re.location_big.lon
         }
-        else if(response.data.error){
-          alert(response.data.error)
-        }
+        re.re_shop.location = JSON.stringify(location)
+        re.ReShop2(re.re_shop)
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       })
       .then(function () {
@@ -111,12 +118,15 @@ export default {
       });
     },
 
-    City(){
-      let re = this
-      axios.get('https://thongtindoanhnghiep.co/api/city')
+    ReShop2(shop){
+      axios.post('http://127.0.0.1:8000/api/add-shop', shop)
       .then(function (response) {
-        re.city = response.data
-        console.log(response.data)
+        if(response.data.success){
+          alert(response.data.success)
+        }
+        else if(response.data.error){
+          alert(response.data.error)
+        }
       })
       .catch(function (error) {
         // handle error
