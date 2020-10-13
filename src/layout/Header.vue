@@ -201,7 +201,7 @@ export default {
     } 
     this.user = JSON.parse(getCookie("user"))
     //console.log(ab)
-    this.$alertify.success(`Xin chào ${this.user.name}`)
+    //this.$alertify.success(`Xin chào ${this.user.name}`)
   },
   methods: {
     Home(){

@@ -86,22 +86,29 @@ export default {
     methods:{
         backHome(){this.$router.push({path:"/"})},
 		checkOrder(){
-			axios.post('http://127.0.0.1:8000/api/add-order', this.check_order)
-			.then(function (response) {	
-				if(response.data.success){
-					alert(response.data.success)
-				}
-				else if(response.data.error){
-					alert(response.data.error)
-				}
-			})
-			.catch(function (error) {
-				// handle error
-				console.log(error);
-			})
-			.then(function () {
-				// always executed
-			});
+			let re = this
+			if(re.check_order.address === ''){
+				alert("Vui lòng nhập địa chỉ nhận hàng!")
+			}
+			else{
+				axios.post('http://127.0.0.1:8000/api/add-order', this.check_order)
+				.then(function (response) {	
+					if(response.data.success){
+						re.$alertify.success(response.data.success)
+						window.location="http://localhost:8080/track-orders"
+					}
+					else if(response.data.error){
+						alert(response.data.error)
+					}
+				})
+				.catch(function (error) {
+					// handle error
+					console.log(error);
+				})
+				.then(function () {
+					// always executed
+				});
+			}
 		},
 
 		DetailShop(){

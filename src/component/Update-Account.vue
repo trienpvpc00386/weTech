@@ -20,26 +20,31 @@
                 <form role="form">
                     <label>Họ và Tên:</label>
                     <input type="text" v-model="update_account.name" class="form-control" :placeholder="user.name">
-                    <label>Password:</label>
-                    <input type="text" v-model="update_account.password" class="form-control">
-                    <div class="form-check-inline mt-3">
-                        <label class="form-check-label">Giới tính: </label>
-                        <label class="form-check-label ml-3">
-                            <input type="radio" class="form-check-input" v-model="update_account.gender"  name="optradio">Nam 
-                        </label>
-                        </div>
-                        <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">Nữ
-                        </label>
-                    </div> <br>
-                    <label class="mt-2">Địa chỉ:</label>
+                    <div class="form-group mt-2">
+                        <label>Giới Tính:</label>
+                        <select class="form-control" v-model="update_account.gender">
+                            <option class="active">---Chọn giới tính---</option>
+                            <option value="1">Nam</option>
+                            <option value="0">Nữ</option>
+                            <option value="2">Khác</option>
+                        </select>
+                    </div>
+                    <label>Địa chỉ:</label>
                     <input type="email" v-model="update_account.address" class="form-control" :placeholder="user.address">
-                    <label>Ngày sinh:</label>
+                    <label class="mt-2">Ngày sinh:</label>
                     <input type="date" v-model="update_account.birth_day" class="form-control" :placeholder="user.birth_day">
-                    <label>Số điện thoại:</label>
-                    <input type="text" v-model="update_account.phone_number" class="form-control" :placeholder="user.phone_number"> <br>
-                    <input type="button" class="btn btn-warning btn-block" @click="UpdateAcount" value="Gửi">
+                    <label class="mt-2">Số điện thoại:</label>
+                    <input type="text" v-model="update_account.phone_number" class="form-control" :placeholder="user.phone_number">
+                    <div class="form-check-inline mt-2">
+                        <label class="form-check-label">
+                            <input type="checkbox" value="Thay Đổi Password" v-model="checkedNames"> Thay Đổi Password
+                        </label>
+                    </div> <br> <br>
+                    <div v-if="checkedNames==true">
+                        <label>Password: </label>
+                        <input type="text" v-model="update_account.password" id="pass" class="form-control">
+                    </div> <br>
+                    <input type="button" class="btn btn-warning btn-block" @click="UpdateAcount" value="Cập Nhật">
                 </form>
             </div>
        </div>
@@ -61,7 +66,8 @@ export default {
                 address:'',
                 birth_day:'',
                 phone_number:''
-            }
+            },
+            checkedNames: ''
         }
     },
     created(){
@@ -77,26 +83,18 @@ export default {
         } 
         this.user = JSON.parse(getCookie("user"))
 
-        this.Detail_Account()
+        this.update_account.user_id = this.user.user_id
+        this.update_account.name = this.user.name
+        this.update_account.address = this.user.address
+        this.update_account.birth_day = this.user.birth_day
+        this.update_account.phone_number = this.user.phone_number
+        this.update_account.gender = this.user.gender
+
     },
     methods:{
-        Detail_Account(){
-            let re = this
-            axios.post('http://127.0.0.1:8000/api/', {keywords:this.update_account})
-            .then(function (response) {
-                re.detail_account = response.data
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
-        },
         UpdateAcount(){
             let re = this
-            axios.post('http://127.0.0.1:8000/api/', {keywords:this.update_account})
+            axios.post('http://127.0.0.1:8000/api/update-account', {keywords:this.update_account})
             .then(function (response) {
                 if(response.data.success){
                     alert(response.data.success)

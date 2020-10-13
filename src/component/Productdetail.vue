@@ -230,6 +230,7 @@ export default {
       value             : [],
       select_type       : 0,
       quantity_cart     : 1,
+      check_comment     : ''
     }
     
   },
@@ -390,6 +391,21 @@ export default {
         }else{
           alert('Thêm Sản Phẩm Thành Công')
         }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
+    checkComment(){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/check-comment', {user_id:this.user_id})
+      .then(function (response) {
+          
       })
       .catch(function (error) {
         // handle error

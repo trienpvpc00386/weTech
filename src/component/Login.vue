@@ -49,7 +49,7 @@
                             <i class="ni ni-lock-circle-open"></i>
                           </span>
                         </div>
-                        <input class="form-control" placeholder="Password" type="password" v-model="user.password"/>
+                        <input class="form-control" @keyup.enter="Login" placeholder="Password" type="password" v-model="user.password"/>
                       </div>
                     </div>
                     <div class="custom-control custom-control-alternative custom-checkbox">
@@ -59,7 +59,7 @@
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-primary my-4" @click="Login">Sign in</button>
+                      <input type="button" class="btn btn-primary my-4" @click="Login" value="Đăng Nhập">
                     </div>
                   </form>
                 </div>
@@ -88,6 +88,7 @@
 
 <script>
 import axios from 'axios'
+import $ from 'jquery'
 export default {
     data(){
       return{
@@ -95,7 +96,6 @@ export default {
           username: "",
           password: ""
         },
-
       }
   },
   methods: {
