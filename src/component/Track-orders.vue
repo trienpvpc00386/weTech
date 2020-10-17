@@ -9,43 +9,250 @@
               </svg>&emsp;
             </a> 
         </router-link>
-          Đơn hàng của bạn
+        Đơn hàng của bạn
     </div>
 	
 	<div>
-		<div class="Track-orders">
-			<div class="container">
-					<form action="#" class="checkout-form">
-						<div class="row">
-							<div class="col-lg-6 mt-3" v-for="(order, index) in unactive_order" :key="index">
-								<div class="place-order">
-									<h4>Đơn Hàng Của Bạn {{index+1}}</h4>
-									<div class="order-total">
-										<ul class="order-table">
-											<li>Sản Phẩm  <span>Giá</span></li>
-											<li v-for="(product, index) in JSON.parse(order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
-										</ul>
-										<div class="text-center">
-											<h5>SỐ TIỀN PHẢI THANH TOÁN: {{order.total}} đ</h5>
-										</div>
+		<div class="container">
+			<h2>Đơn Hàng Của Bạn</h2>
+			<br>
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" data-toggle="tab" href="#unactive-order">Đang Chờ Duyệt</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#active-order">Đã Duyệt</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#update-order-user">Đã Đóng Gói</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#confirm-order">Đang Giao</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#finish-order">Đã Giao</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" data-toggle="tab" href="#cancel-order-user">Đã Hủy</a>
+				</li>
+			</ul>
 
-										<div class="input-group mt-5">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div id="unactive-order" class="container tab-pane active"><br>
+					<div class="Track-orders" id="tab-content-order" v-if="check_unactive_order == 'true'">
+						<div class="container">
+							<form action="#" class="checkout-form">
+								<div class="row">
+									<div class="col-lg-6 mt-3" v-for="(order, index) in unactive_order" :key="index">
+										<div class="place-order">
+											<h4>Đơn Hàng Thứ {{index+1}} Của Bạn</h4>
+											<div class="order-total">
+												<ul class="order-table">
+													<li>Sản Phẩm  <span>Giá</span></li>
+													<li v-for="(product, index) in JSON.parse(order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
+												</ul>
+												<div class="text-center">
+													<h5>SỐ TIỀN PHẢI THANH TOÁN: {{order.total}} đ</h5>
+												</div>
 
-											<button class="btn btn-light">Tình trạng đơn hàng: </button>
-								
-											<button class="btn btn-success ml-2">Chờ duyệt</button>
-										</div>
+												<div class="input-group mt-5">
 
-										<div class="order-btn mt-5">
-											<input type="button" class="btn btn-warning" value="HỦY ĐƠN HÀNG">
+													<button class="btn btn-light">Tình trạng đơn hàng: </button>
+										
+													<button class="btn btn-success ml-2">Chờ duyệt</button>
+												</div>
+
+												<div class="order-btn mt-5">
+													<input type="button" class="btn btn-warning" @click="cancelOrder(order)" value="HỦY ĐƠN HÀNG">
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							</form>
+						</div>						
+					</div>
+					<h3 v-if="check_unactive_order == 'false'">Bạn không có đơn hàng nào đang chờ duyệt</h3>
+				</div>
+				<div id="active-order" class="container tab-pane fade"><br>
+					<div class="Track-orders" id="tab-content-order" v-if="check_active_order == 'true'">
+						<div class="container">
+							<form action="#" class="checkout-form">
+								<div class="row">
+									<div class="col-lg-6 mt-3" v-for="(active_order, index) in active_order" :key="index">
+										<div class="place-order">
+											<h4>Đơn Hàng Thứ {{index+1}} Của Bạn</h4>
+											<div class="order-total">
+												<ul class="order-table">
+													<li>Sản Phẩm  <span>Giá</span></li>
+													<li v-for="(product, index) in JSON.parse(active_order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
+												</ul>
+												<div class="text-center">
+													<h5>SỐ TIỀN PHẢI THANH TOÁN: {{active_order.total}} đ</h5>
+												</div>
+
+												<div class="input-group mt-5">
+
+													<button class="btn btn-light">Tình trạng đơn hàng: </button>
+										
+													<button class="btn btn-success ml-2">Đã duyệt</button>
+												</div>
+
+												<div class="order-btn mt-5">
+													<input type="button" class="btn btn-warning" @click="cancelOrder(order)" value="HỦY ĐƠN HÀNG">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>						
+					</div>
+					<h3 v-else-if="check_active_order == 'false'">Bạn không có đơn hàng đã duyệt</h3>
+				</div>
+				<div id="update-order-user" class="container tab-pane fade"><br>
+					<div class="Track-orders" id="tab-content-order" v-if="check_update_order_user == 'true'">
+						<div class="container">
+							<form action="#" class="checkout-form">
+								<div class="row">
+									<div class="col-lg-6 mt-3" v-for="(order, index) in update_order_user" :key="index">
+										<div class="place-order">
+											<h4>Đơn Hàng Thứ {{index+1}} Của Bạn</h4>
+											<div class="order-total">
+												<ul class="order-table">
+													<li>Sản Phẩm  <span>Giá</span></li>
+													<li v-for="(product, index) in JSON.parse(order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
+												</ul>
+												<div class="text-center">
+													<h5>SỐ TIỀN PHẢI THANH TOÁN: {{order.total}} đ</h5>
+												</div>
+
+												<div class="input-group mt-5">
+
+													<button class="btn btn-light">Tình trạng đơn hàng: </button>
+										
+													<button class="btn btn-success ml-2">Đã đóng gói</button>
+												</div>
+
+												<div class="order-btn mt-5">
+													<input type="button" class="btn btn-warning" @click="cancelOrder(order)" value="HỦY ĐƠN HÀNG">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
 						</div>
-					</form>
+					</div>
+					<h3 v-else-if="check_update_order_user == 'false'">Bạn không có đơn hàng nào đã đóng gói</h3>
+				</div>
+				<div id="confirm-order" class="container tab-pane fade"><br>
+					<div class="Track-orders" id="tab-content-order"  v-if="check_confirm_order == 'true'">
+						<div class="container">							
+							<form action="#" class="checkout-form">
+								<div class="row">
+									<div class="col-lg-6 mt-3" v-for="(order, index) in confirm_order" :key="index">
+										<div class="place-order">
+											<h4>Đơn Hàng Thứ {{index+1}} Của Bạn</h4>
+											<div class="order-total">
+												<ul class="order-table">
+													<li>Sản Phẩm  <span>Giá</span></li>
+													<li v-for="(product, index) in JSON.parse(order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
+												</ul>
+												<div class="text-center">
+													<h5>SỐ TIỀN PHẢI THANH TOÁN: {{order.total}} đ</h5>
+												</div>
+
+												<div class="input-group mt-5">
+
+													<button class="btn btn-light">Tình trạng đơn hàng: </button>
+										
+													<button class="btn btn-success ml-2">Đang giao</button>
+												</div>
+
+												<div class="order-btn mt-5">
+													<input type="button" class="btn btn-warning" @click="cancelOrder(order)" value="HỦY ĐƠN HÀNG">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<h3 v-if="check_confirm_order == 'false'">Bạn không có đơn hàng nào đang giao</h3>
+				</div>
+				<div id="finish-order" class="container tab-pane fade"><br>
+					<div class="Track-orders" id="tab-content-order"  v-if="check_finish_order == 'true'">
+						<div class="container">						
+							<form action="#" class="checkout-form">
+								<div class="row">
+									<div class="col-lg-6 mt-3" v-for="(order, index) in finish_order" :key="index">
+										<div class="place-order">
+											<h4>Đơn Hàng Thứ {{index+1}} Của Bạn</h4>
+											<div class="order-total">
+												<ul class="order-table">
+													<li>Sản Phẩm  <span>Giá</span></li>
+													<li v-for="(product, index) in JSON.parse(order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
+												</ul>
+												<div class="text-center">
+													<h5>SỐ TIỀN PHẢI THANH TOÁN: {{order.total}} đ</h5>
+												</div>
+
+												<div class="input-group mt-5">
+
+													<button class="btn btn-light">Tình trạng đơn hàng: </button>
+										
+													<button class="btn btn-success ml-2">Đã Giao</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<h3 v-if="check_finish_order == 'false'">Bạn không có đơn hàng nào đã giao</h3>
+				</div>
+				<div id="cancel-order-user" class="container tab-pane fade"><br>
+					<div class="Track-orders" id="tab-content-order" v-if="check_cancel_order_user == 'true'">
+						<div class="container">							
+							<form action="#" class="checkout-form">
+								<div class="row">
+									<div class="col-lg-6 mt-3" v-for="(order, index) in cancel_order_user" :key="index">
+										<div class="place-order">
+											<h4>Đơn Hàng Thứ {{index+1}} Của Bạn</h4>
+											<div class="order-total">
+												<ul class="order-table">
+													<li>Sản Phẩm  <span>Giá</span></li>
+													<li v-for="(product, index) in JSON.parse(order.order_detail)" :key="index"><img :src="product.image" width="10%"> {{product.product_name}} x {{product.quantity}} <span>{{product.price}}</span></li> 
+												</ul>
+												<div class="text-center">
+													<h5>SỐ TIỀN PHẢI THANH TOÁN: {{order.total}} đ</h5>
+												</div>
+
+												<div class="input-group mt-5">
+
+													<button class="btn btn-light">Tình trạng đơn hàng: </button>
+										
+													<button class="btn btn-success ml-2">Đã hủy</button>
+												</div>
+
+												<div class="order-btn mt-5">
+													<input type="button" class="btn btn-warning" @click="cancelOrder(order)" value="HỦY ĐƠN HÀNG">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<h3 v-if="check_cancel_order_user == 'false'">Bạn không có đơn hàng đã hủy</h3>
+				</div>
 			</div>
-		</div>
+			</div>
 	</div>
   </div>
 </template>
@@ -57,10 +264,19 @@ export default {
         return {
 			user_id :{},
 			unactive_order:[],
+			check_unactive_order: 'false',
 			active_order:[],
+			check_active_order: 'false',
 			confirm_order:[],
+			check_confirm_order: 'false',
 			finish_order:[],
-			unactive_order_detai:[]
+			check_finish_order: 'false',
+			unactive_order_detai:[],
+			check_unactive_order_detai: 'false',
+			cancel_order_user:[],
+			check_cancel_order_user:'false',
+			update_order_user:[],
+			check_update_order_user:'false'
         }
 	},
     created(){
@@ -81,6 +297,8 @@ export default {
 		this.ActiveOrder()
 		this.ConfirmOrder()
 		this.FinishOrder()
+		this.CancelOrderUser()
+		this.UpdateOrder()
 
 		//this.unactive_order.order_detail = JSON.stringify(this.unactive_order.order_detail)
 	},
@@ -89,12 +307,13 @@ export default {
 			let re = this
 			axios.post('http://127.0.0.1:8000/api/unactive-order', {user_id:this.user_id})
 			.then(function (response) {
-				console.log(response.data)
-				re.unactive_order = response.data
-				// let data = response.data
-				// for(let i in data){
-				// 	re.unactive_order_detai.push(JSON.parse(data[i].order_detail))
-				// }
+				if(JSON.stringify(response.data) == '[]'){
+					re.check_unactive_order = 'false'
+				}
+				else{
+					re.check_unactive_order = 'true'
+					re.unactive_order = response.data
+				}
 			})
 			.catch(function (error) {
 				// handle error
@@ -109,8 +328,14 @@ export default {
 			let re = this
 			axios.post('http://127.0.0.1:8000/api/active-order', {user_id:this.user_id})
 			.then(function (response) {
-				console.log(response.data)
-				re.active_order = response.data
+				//console.log(response.data)
+				if(JSON.stringify(response.data) == '[]'){
+					re.check_active_order = 'false'
+				}
+				else{
+					re.check_active_order = 'true'
+					re.active_order = response.data
+				}			
 			})
 			.catch(function (error) {
 				// handle error
@@ -125,8 +350,14 @@ export default {
 			let re = this
 			axios.post('http://127.0.0.1:8000/api/confirm-order', {user_id:this.user_id})
 			.then(function (response) {
-				console.log(response.data)
-				re.confirm_order = response.data
+				//console.log(response.data)
+				if(JSON.stringify(response.data) == '[]'){
+					re.check_confirm_order = 'false'
+				}
+				else{
+					re.check_confirm_order = 'true'
+					re.confirm_order = response.data
+				}					
 			})
 			.catch(function (error) {
 				// handle error
@@ -141,8 +372,80 @@ export default {
 			let re = this
 			axios.post('http://127.0.0.1:8000/api/finish-order', {user_id:this.user_id})
 			.then(function (response) {
-				console.log(response.data)
-				re.finish_order = response.data
+				//console.log(response.data)
+				if(JSON.stringify(response.data) == '[]'){
+					re.check_finish_order = 'false'
+				}
+				else{
+					re.check_finish_order = 'true'
+					re.finish_order = response.data
+				}				
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			})
+			.then(function () {
+				// always executed
+			});
+		},
+
+		CancelOrderUser(){
+			let re = this
+			axios.post('http://127.0.0.1:8000/api/cancel-order-user', {user_id:this.user_id})
+			.then(function (response) {
+				//console.log(response.data)
+				if(JSON.stringify(response.data) == '[]'){
+					re.check_cancel_order_user = 'false'
+				}
+				else{
+					re.check_cancel_order_user = 'true'
+					re.cancel_order_user = response.data
+				}				
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			})
+			.then(function () {
+				// always executed
+			});
+		},
+
+		UpdateOrder(){
+			let re = this
+			axios.post('http://127.0.0.1:8000/api/update-order-user', {user_id:this.user_id})
+			.then(function (response) {
+				//console.log(response.data)
+				if(JSON.stringify(response.data) == '[]'){
+					re.check_update_order_user = 'false'
+				}
+				else{
+					re.check_update_order_user = 'true'
+					re.update_order_user = response.data
+				}
+			})
+			.catch(function (error) {
+				// handle error
+				console.log(error);
+			})
+			.then(function () {
+				// always executed
+			});
+		},
+
+		cancelOrder(order){
+			let re = this
+			axios.post('http://127.0.0.1:8000/api/cancel-order', {id:order.id})
+			.then(function (response) {
+				//console.log(response.data)
+				if(response.data.success){
+					re.$alertify.success("Đã hủy thành công")
+					window.location="http://localhost:8080/track-orders";
+				}
+				else if(response.data.error){
+					alert(response.data.error)
+				}
 			})
 			.catch(function (error) {
 				// handle error
@@ -195,6 +498,10 @@ export default {
 
 .checkout-content {
 	margin-bottom: 50px;
+}
+
+#tab-content-order{
+	background-color: white;
 }
 
 .checkout-content .content-btn,

@@ -146,7 +146,7 @@
             <div class="col-sm-12 mt-3">
               <h5>Thông tin & Khuyến mãi</h5>
               <p>Đổi trả hàng trong vòng 7 ngày</p>
-              <p>Freeship nội thành Cần Thơ từ 150.000đ*.</p>
+              <p>Freeship nội thành Cần Thơ từ 1.500.000đ*.</p>
               <p></p>
             </div>
 
@@ -184,28 +184,59 @@
           <div class="card">
             <div class="card-body">
               <h5>Đánh Giá Sản Phẩm</h5>&emsp;
-              <div class="rate-star">
-                <a>4.5 trên 5</a>
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                </svg>
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-half" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.354 5.119L7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.519.519 0 0 1-.146.05c-.341.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.171-.403.59.59 0 0 1 .084-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027c.08 0 .16.018.232.056l3.686 1.894-.694-3.957a.564.564 0 0 1 .163-.505l2.906-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.002 2.223 8 2.226v9.8z"/>
-                </svg>
+              <div>
+                <div class="col-sm-12 mt-4 card" v-if="check_comment == 'true'">
+                  <form role="form" class="card-body"> 
+                    <div class="input-group mb-3">
+
+                      <button class="btn btn-light">Đánh giá sao:</button>
+
+                      <star-rating class="ml-3" :star-size="25" v-model:rating="add_comment.rating"></star-rating>
+                    </div>   
+
+                    <div class="input-group mb-3">
+
+                      <button class="btn btn-light">Nhận xét về sản phẩm: </button>
+
+                      <input type="text" class="form-control" v-model="add_comment.content">
+
+                      <input type="button" class="btn btn-warning ml-2" @click="AddComment" value="Gửi">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <hr>
+              <div class="card">
+                <div class="card-body">
+                  <div class="media-body card-body" v-for="(cmt, index) in get_comment" :key="index">
+                    <star-rating class="" :star-size="20" v-model:rating="cmt.rating"></star-rating>
+                    <p class="mt-2"><small><i>bởi_</i></small><b>{{cmt.name}}</b> <i></i><span class="fa fa-check-square check-order"> Chứng nhận đã mua hàng của wetech</span></p>
+                    <p class="ml-4"> {{cmt.content}}</p>      
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
+        <div class="col-sm-12 product-type mt-4">
+          <h4 class=""><b><i class="mt-2">SẢN PHẨM TƯƠNG TỰ</i></b></h4><hr>
+          <div class="row mt-4 product-type-all">
+              <div class="col-sm-2 card" v-for="(product_type, index) in product_type" v-bind:key="index">
+                  <div class="card-body" @click="goDetail(product)">
+                      <button class="btn btn-outline-danger">-45%</button>
+
+                      <a href="javascript:void(0)"><img :src="product_type.image" width="100%"></a>
+                      
+                      <p>{{ product_type.product_name }}</p>
+                      <h6>{{ product_type.price }} <strike> <i> 350.000<u>đ</u></i></strike></h6> 
+                      <div class="progress">
+                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
       </div>
       <Footer/>
     </div>
@@ -215,11 +246,13 @@
 <script>
 import { eventBus } from "../main"
 import axios from 'axios'
+import StarRating from 'vue-star-rating'
 export default {
   data(){ 
     return {
       data              : {},
-      user_id           : {},
+      user              : {},
+      user_id           : '',
       product_detail    : [],
       detail_info       : [],
       cate_idd          : 0,
@@ -230,13 +263,25 @@ export default {
       value             : [],
       select_type       : 0,
       quantity_cart     : 1,
-      check_comment     : ''
+      check_comment     : '',
+      get_comment       : [],
+      add_comment       : {
+        user_id    : '',
+        content    : '',
+        product_id : '',
+        rating     : null
+      }
     }
     
+  },
+  components:{
+    StarRating
   },
   created(){ 
 
     this.data = this.$route.params.detail
+
+    this.getComment()
 
     this.ProductDetail()
 
@@ -251,7 +296,13 @@ export default {
       return "";
     } 
 
-    this.user_id = JSON.parse(getCookie("user_id"))
+    this.user = JSON.parse(getCookie("user"))
+    this.user_id = this.user.user_id
+
+    this.checkComment()
+
+    this.add_comment.user_id    = this.user_id
+    this.add_comment.product_id = this.data.product_id
 
   },
   methods:{
@@ -377,6 +428,66 @@ export default {
           }
     },
 
+    getComment(){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/get-comment', {product_id:this.data.product_id})
+      .then(function (response) {
+          re.get_comment = response.data
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
+    checkComment(){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/check-comment', 
+        {
+          product_id:this.data.product_id,
+          user_id:this.user_id
+        })
+      .then(function (response) {
+        if(response.data.success){
+          re.check_comment = 'true'
+          console.log(response.data.success)
+        }
+        else if(response.data.error){
+           re.check_comment = 'false'
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
+    AddComment(){
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/add-comment', this.add_comment)
+      .then(function (response) {
+        if(response.data.success){
+          alert(response.data.success)
+        }
+        else if(response.data.error){
+           alert(response.data.error)
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+    },
+
     goCart(){
       axios.post('http://127.0.0.1:8000/api/add-cart', 
         {
@@ -391,21 +502,6 @@ export default {
         }else{
           alert('Thêm Sản Phẩm Thành Công')
         }
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
-    },
-
-    checkComment(){
-      let re = this
-      axios.post('http://127.0.0.1:8000/api/check-comment', {user_id:this.user_id})
-      .then(function (response) {
-          
       })
       .catch(function (error) {
         // handle error
@@ -478,6 +574,10 @@ export default {
   /* #custCarousel .carousel-indicators {
       
   } */
+
+  .check-order{
+    color: green;
+  }
 
   #image_detail_mini{
     max-height: 110px;
@@ -665,14 +765,29 @@ export default {
     }
   }
 
-  .featured-products .featured-products-all{
-    background-color: white;
-}
-.featured-products .card:hover{
-    box-shadow: 0 0 10px rgb(192, 191, 191);
-    background-color: rgb(250,250,250);
-}
-.featured-products-all p:hover{
-    color: rgb(253, 125, 5);
-}
+  .product-type{
+    width: 87%;
+    margin-left: 6.5%;
+    margin-right: 6.5%;
+  }
+  .product-type h4{  
+      color: rgb(255, 72, 0);
+  }
+  .product-type h5{
+      color: rgb(255, 30, 0);
+  }
+  .product-type .card{
+      border: 0;
+      width: 100%;
+  }
+  .product-type .product-type-all{
+      background-color: white;
+  }
+  .product-type .card:hover{
+      box-shadow: 0 0 10px rgb(192, 191, 191);
+      background-color: rgb(250,250,250);
+  }
+  .product-type-all p:hover{
+      color: rgb(253, 125, 5);
+  }
 </style>

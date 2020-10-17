@@ -235,159 +235,9 @@ export default {
     name : "app",   
         data() {
         return {
-            danhmuc  :[
-                {
-                    "dslon": "Điện Thoại - Máy Tính Bảng",
-                    "danhmuc2": "danhmuc",
-                    "dscon": [
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                    ]
-                },
-                {
-                    "dslon": "Điện Tử - Điện Lạnh",
-                    "danhmuc2": "danhmuc2",
-                    "dscon": [
-                        {title: 'Tivi bán chạy'},
-                        {title: 'Tivi Mới'},
-                        {title: 'Tivi bán chạy'},
-                        {title: 'Tivi Mới'},
-                        {title: 'Tivi bán chạy'},
-                        {title: 'Tivi Mới'},
-                        {title: 'Tivi bán chạy'},
-                        {title: 'Tivi Mới'},
-                        {title: 'Tivi Mới'},
-                    ]
-                },
-                {
-                    "dslon": "Phụ Kiện - Thiết Bị Số",
-                    "danhmuc2": "danhmuc3",
-                    "dscon": [
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                        {title: 'Tai nghe nhét tai'},
-                    ]
-                },
-                {
-                    "dslon": "Laptop - Thiết Bị IT",
-                    "danhmuc2": "danhmuc4",
-                    "dscon": [
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                        {title: 'Chuột máy tính'},
-                    ]
-                },
-                {
-                    "dslon": "Máy Ảnh - Máy Quay Phim",
-                    "danhmuc2": "danhmuc5",
-                    "dscon": [
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                        {title: 'Máy Ảnh Canon'},
-                    ]
-                },
-                {
-                    "dslon": "Điện Gia Dụng",
-                    "danhmuc2": "danhmuc6",
-                    "dscon": [
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                    ]
-                },
-                {
-                    "dslon": "Làm Đẹp - Sức Khỏe",
-                    "danhmuc2": "danhmuc7",
-                    "dscon": [
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                    ]
-                },
-                {
-                    "dslon": "Thời Trang - Phụ Kiện",
-                    "danhmuc2": "danhmuc8",
-                    "dscon": [
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                    ]
-                },
-                {
-                    "dslon": "Nhà Cửa - Đời Sống",
-                    "danhmuc2": "danhmuc9",
-                    "dscon": [
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                    ]
-                },
-                {
-                    "dslon": "Hàng Tiêu Dùng - Thực Phẩm",
-                    "danhmuc2": "danhmuc9",
-                    "dscon": [
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                        {title: 'Samsung Galaxy S20 Plus'},
-                    ]
-                }
-            ],
+            category  : [],
             products : [],
+            description : {},
             slideshow: [
                 {
                     "id"        : "001",
@@ -410,6 +260,7 @@ export default {
     }, 
     created(){
         this.Product()
+        this.Category()
     },
     methods:{
         goDetail(p){
@@ -420,6 +271,22 @@ export default {
             axios.post('http://localhost:8000/api/product')
             .then(function (response) {
                 re.products = response.data
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+        },
+
+        Category(){
+            let re = this
+            axios.post('http://localhost:8000/api/cate')
+            .then(function (response) {
+                //console.log(response.data)
+                re.category = response.data
             })
             .catch(function (error) {
                 // handle error

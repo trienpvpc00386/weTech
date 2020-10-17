@@ -41,8 +41,10 @@
                         </label>
                     </div> <br> <br>
                     <div v-if="checkedNames==true">
-                        <label>Password: </label>
-                        <input type="text" v-model="update_account.password" id="pass" class="form-control">
+                        <label>Password Cũ: </label>
+                        <input type="text" v-model="update_account.password_old" class="form-control">
+                        <label>Password Mới: </label>
+                        <input type="text" v-model="update_account.password_new" class="form-control">
                     </div> <br>
                     <input type="button" class="btn btn-warning btn-block" @click="UpdateAcount" value="Cập Nhật">
                 </form>
@@ -62,6 +64,7 @@ export default {
                 user_id:'',
                 name:'',
                 password:'',
+                password_old:'',
                 gender:'',
                 address:'',
                 birth_day:'',
@@ -94,13 +97,16 @@ export default {
     methods:{
         UpdateAcount(){
             let re = this
-            axios.post('http://127.0.0.1:8000/api/update-account', {keywords:this.update_account})
+            axios.post('http://127.0.0.1:8000/api/update-account', this.update_account)
             .then(function (response) {
                 if(response.data.success){
                     alert(response.data.success)
                 }
                 else if(response.data.error){
                     alert(response.data.error)
+                }
+                else if(response.data.error_password){
+                    alert(response.data.error_password)
                 }
             })
             .catch(function (error) {
