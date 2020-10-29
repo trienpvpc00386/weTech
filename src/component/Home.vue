@@ -2,11 +2,11 @@
   <div class="home">
       <div class="row content-home">
           <div class="" id="v-for-object">
-              <div class="list-group" id="category" v-for="(a, index) in danhmuc" :key="index">
+              <div class="list-group" id="category" v-for="(a, index, key) in category" :key="index">
                 <div class="dropdown">
                     <a href="javascript:void(0)">
                         <a href="javascript:void(0)" class="list-group-item list-group-item-action" id="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ a.dslon }}</a>
+                        {{ key }}</a>
                     </a>
                     <div class="dropdown-menu" id="sub-categories" aria-labelledby="" >
                         <a class="dropdown-item" href="javascript:void(0)" v-for="(b, index) in a.dscon" :key="index">{{b.title}}</a>
@@ -27,10 +27,10 @@
                 <!-- The slideshow -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img :src="slideshow[0].link_image" width="100%" id="slide_image">
+                        <img :src="slideshow[0].image" width="100%" id="slide_image">
                     </div>
                     <div class="carousel-item" v-for="(slide, index) in slideshow" :key="index">
-                        <img :src="slide.link_image" width="100%" id="slide_image">
+                        <img :src="slide.image" width="100%" id="slide_image">
                     </div>
                 </div>
 
@@ -59,28 +59,28 @@
       <!-- Featured products --> 
 
       <div class="featured-products mt-4">
-          <h4 class=""><b><i class="mt-2">Khuyến Mãi Hôm Nay - </i> 10 : 24 : 30  </b></h4><hr>
-          <div class="row mt-4 featured-products-all">
-              <div class="col-sm-2 card" id="body_product_image" v-for="(product, index) in products" v-bind:key="index">
-                  <div class="card-body" @click="goDetail(product)">
-                      <button class="btn btn-outline-danger">-45%</button>
+            <h4 class=""><b><i class="mt-2">Khuyến Mãi Hôm Nay - </i> 10 : 24 : 30  </b></h4><hr>
+            <div class="row mt-4 featured-products-all">
+                <div class="col-sm-2 card" id="body_product_image" v-for="(product, index) in products" v-bind:key="index">
+                    <div class="card-body" @click="goDetail(product)">
+                        <button class="btn btn-outline-danger">-45%</button>
 
-                      <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
-                      
-                      <div id="name_product">
-                        <p>{{ product.product_name }}</p>
-                        <h6>{{ product.price }}<u> đ</u></h6> 
-                        <div class="progress">
-                            <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                        <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
+                            
+                        <div id="name_product">
+                            <p>{{ product.product_name }}</p>
+                            <h6>{{ product.price }}<u> đ</u></h6> 
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                            </div>
                         </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-sm-12">
-                   <div class="row justify-content-center mb-2 mt-2">
-                       <button type="button" class="col-sm-2 btn btn-outline-success btn-sm btn-block"><a href="products">Xem thêm</a></button>
-                   </div>
-              </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="row justify-content-center mb-2 mt-2">
+                        <button type="button" class="col-sm-2 btn btn-outline-success btn-sm btn-block"><router-link to="/products"><a href="javascript:void(0)">Xem thêm</a></router-link></button>
+                    </div>
+                </div>
           </div>
       </div>
 
@@ -233,34 +233,19 @@ import axios from 'axios'
 import {RouterLink} from '../main'
 export default {
     name : "app",   
-        data() {
+    data() {
         return {
             category  : [],
+            cate_key : [],
             products : [],
             description : {},
-            slideshow: [
-                {
-                    "id"        : "001",
-                    "name_image": "hinh1",
-                    "link_image": "https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/nuochoa_tngbau.png"
-                },
-                {
-                    "id"        : "002",
-                    "name_image": "hinh2",
-                    "link_image": "https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/fashion_u7qkiz.png"
-                },
-                {
-                    "id"        : "001",
-                    "name_image": "hinh3",
-                    "link_image": "https://res.cloudinary.com/dhkfqcpq8/image/upload/v1600685792/shoes_rrvkdq.png"
-                }
-            ],
-        showCart: false
+            slideshow: [],
         }    
     }, 
     created(){
         this.Product()
         this.Category()
+        this.SlideShow()
     },
     methods:{
         goDetail(p){
@@ -270,7 +255,7 @@ export default {
             let re = this
             axios.post('http://localhost:8000/api/product')
             .then(function (response) {
-                re.products = response.data
+                re.products = response.data.data
             })
             .catch(function (error) {
                 // handle error
@@ -287,6 +272,25 @@ export default {
             .then(function (response) {
                 //console.log(response.data)
                 re.category = response.data
+                let data = response.data
+                let key = Object.keys(data)
+                //console.log(key)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .then(function () {
+                // always executed
+            });
+        },
+
+        SlideShow(){
+            let re = this
+            axios.post('http://localhost:8000/api/show-banner')
+            .then(function (response) {
+                //console.log(response.data)
+                re.slideshow = response.data
             })
             .catch(function (error) {
                 // handle error

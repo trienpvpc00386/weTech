@@ -81,6 +81,7 @@ export default {
     return {
       user_id : {},
       cart    : [],
+      new_cart: []
       // fncart  : []
     }
   },
@@ -100,6 +101,7 @@ export default {
     this.user_id = JSON.parse(getCookie("user_id"))
 
     this.Product_Cart()
+
   },
   computed:{
       totalQuantity(){
@@ -117,6 +119,7 @@ export default {
       .then(function (response) {
         //console.log(response.data)
         re.cart = response.data
+        
         //re.updateCart(sp, updateType)
       })
       .catch(function (error) {

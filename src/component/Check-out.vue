@@ -17,11 +17,11 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <label for="town">Ghi chú<span>*</span></label>
-                                    <input type="text" id="town">
+                                    <input type="text" id="town" v-model="check_order.note">
                                 </div>
 								<div class="col-lg-12">
                                     <label for="street">Địa Chỉ<span>*</span></label>
-                                    <input type="text" v-model="check_order.address" id="street" class="street-first">
+                                    <input type="text" v-model="check_order.order_address" id="street" class="street-first">
 									<input type="button" class="btn btn-primary" @click="ChoseAddress" value="Xác nhận địa chỉ">
                                 </div>
                             </div>
@@ -55,18 +55,26 @@
 <script>
 import { eventBus } from "../main"
 import axios from 'axios'
+import _ from 'lodash'
 export default {
     data(){
         return {
             checkout      :[],
 			user_id       :{},
 			check_order:{
-				user_id     : '',
-				address     : '',
-				shipping    : '',
-				total       : '',
-				order_detail: '' 
+				user_id       : '',
+				order_address : '',
+				shipping      : '',
+				total         : '',
+				order_detail  : '',
+				user_range    : '',
+				weight_order  : '',
+				note		  : ''
 			},
+			shipping_new : [],
+			id_shop       : [],
+			shop_range    : null,
+			weight_order  : [],
 			detail_shop   : [],
 			chose_address : [],
 			total_av      : 0
@@ -80,11 +88,13 @@ export default {
 		this.check_order.order_detail = JSON.stringify(this.checkout)
 		this.check_order.total        = this.totalQuantity
 
-		this.DetailShop()
-		this.ChoseAddress()
+		this.AddressShop()
+		this.WeightOrder()
+		//this.ChoseAddress()
     },
     methods:{
-        backHome(){this.$router.push({path:"/"})},
+		backHome(){this.$router.push({path:"/"})},
+	
 		checkOrder(){
 			let re = this
 			if(re.check_order.address === ''){
@@ -111,43 +121,94 @@ export default {
 			}
 		},
 
-		DetailShop(){
-            let re = this
-            axios.post('http://127.0.0.1:8000/api/product-shop', {shop_id:this.checkout[0].shop_id})
-            .then(function (response) {
-                //console.log(response.data)
-                re.detail_shop = response.data
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+		AddressShop(){
+			let re = this
+			let add = []
+			let new_shipping = []
+			for(let i = 0; i < re.checkout.length; i++){
+				add.push(re.checkout[i].shop_id)
+				re.id_shop = _.uniq(add)
+			}
+			for(let y = 0; y < re.id_shop.length ; y++){
+				axios.post('http://127.0.0.1:8000/api/range-shop', {shop_id:this.id_shop[y]})
+					.then(function (response) {
+						//console.log(response.data)
+						re.detail_shop.push(JSON.parse(response.data.shop_range))
+						//let data = response.data
+						
+						let shipping = {
+							shop_id   : response.data.shop_id,
+							shop_range: JSON.parse(response.data.shop_range), 
+						}
+						
+						new_shipping.push(shipping)
+						//console.log("Đây: " + new_shipping)
+						re.check_order.shipping = JSON.stringify(new_shipping)
+						re.shipping_new = new_shipping
+						
+					})
+					.catch(function (error) {
+						// handle error
+						console.log(error);
+					})
+					.then(function () {
+						// always executed
+				});
+			}
+								
+		},
+
+		WeightOrder(){
+			let re = this
+			let weight = []
+			for(let j = 0; j < re.checkout.length; j++){
+				re.weight_order.push(JSON.parse(re.checkout[j].weight))
+				//console.log(weight)
+			}
 		},
 		
 		ChoseAddress(){
 			let re = this
-			axios.get('https://nominatim.openstreetmap.org/search/'+this.check_order.address+'?format=json&addressdetails=1&limit=1&polygon_svg=1')
+			let tien = null
+			let weight = null
+			let reducer = (accumulator, currentValue) => accumulator + currentValue;
+			axios.get('https://nominatim.openstreetmap.org/search/'+this.check_order.order_address+'?format=json&addressdetails=1&limit=1&polygon_svg=1')
 			.then(function (response) {
 				re.location_big = response.data[0]	
 				//let location = {
 				// let lat = re.location_big.lat
 				// let lon = re.location_big.lon
+
+				//Địa chỉ Shop đến kho
+				re.shop_range = re.detail_shop.reduce(reducer)
+
+				//Điếm shop
+				let shop_range_length = 0
+				shop_range_length = re.detail_shop.length
+				console.log('diemshop: ' + shop_range_length)
+
+				//Trọng lượng đơn hàng
+				weight = re.weight_order.reduce(reducer)
+				re.check_order.weight_order = re.weight_order.reduce(reducer)
+				//console.log("Trọng lượng: " + weight)
+
 				// Địa chỉ cửa hàng
-				// var lat1 = data.results[y].latlng.lat
-				// var long1 = data.results[y].latlng.lng
-				var lat1 = 10.0476153
-				var long1 = 105.7831003
+				// var latitude1 = data.results[y].latlng.lat
+				// var longitude1 = data.results[y].latlng.lng
+				var latitude1 = 10.0268996
+				var longitude1 = 105.7574271				
+
+				//var lat1 = 10.0476153
+				//var long1 = 105.7831003
+
 				// Địa chỉ khách hàng 10.029077,105.754038
-				var lat2 = re.location_big.lat
-				var long2 = re.location_big.lon
+				var latitude2 = re.location_big.lat
+				var longitude2 = re.location_big.lon
 				var pi = Math.PI;
-				var x1 = lat1 * (pi/180)
-				var y1 = long1 * (pi/180)
-				var x2 = lat2 * (pi/180)
-				var y2 = long2 * (pi/180)
+				var x1 = latitude1 * (pi/180)
+				var y1 = longitude1 * (pi/180)
+				var x2 = latitude2 * (pi/180)
+				var y2 = longitude2 * (pi/180)
 
 				var difflat = x2 - x1
 				var difflong = y2 - y1
@@ -156,14 +217,40 @@ export default {
 				var kqcx = 6339.90 * (2 * Math.asin(Math.sqrt(kq)))
 				// Làm tròn 3 số
 				var kqkq = Math.round(kqcx * 1000) / 1000
-				let tien = 5000
-				let shipping  = tien * kqkq
-				re.check_order.shipping = shipping
+				if(weight <= 5){
+					tien = 2000
+				}
+				else if(weight > 5 && weight <= 10){
+					tien = 4000
+				}
+				else if(weight > 10 && weight <=15 ){
+					tien = 80000
+				}
+				else{
+					tien = 15000
+				}
+
+				if(shop_range_length > 0){
+					kqkq = kqkq * shop_range_length
+				}
+
+				//Tiền ship
+				let shipping  = tien * (kqkq + re.shop_range)
+				//console.log(shipping)
+
+				//Khoảng cách từ user đến cửa hàng
+				re.check_order.user_range = kqkq
+				//Tiền tổng
 				re.total_av = re.totalQuantity + shipping
-				console.log('Tiền Tổng: ' + re.total_av)
-				console.log('Tiền ship: '+re.check_order.shipping)
-				console.log(kqkq)
-				
+	
+				// console.log('Tiền SP: ' + re.totalQuantity)
+				// console.log('Tiền Tổng: ' + re.total_av)
+				// console.log('Tiền ship: '+re.check_order.shipping)
+				// console.log('Khoảng cách từ user đến shop: ' + kqkq)
+				// console.log('Khoảng cách từ cửa hàng đến shop: ' + re.shop_range)
+				// console.log('Tền ship: ' + shipping)
+				// console.log('giá Tiền ship: ' + tien)
+
 			})
 			.catch(function (error) {
 				console.log(error);

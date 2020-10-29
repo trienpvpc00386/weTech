@@ -2,7 +2,7 @@
   <div>
         <div class="link-menu">
 
-          <a href="javascript:void(0)" @click="backHome" >Trang chủ&emsp;
+          <a href="javascript:void(0)">Trang chủ&emsp;
 
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-compact-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-sm-3 category">
                 <p><strong>DANH MỤC SẢN PHẨM</strong></p>
-                <a href="javascript:void(0)" @click="Home">Sản phẩm mới</a><br>
+                <a href="javascript:void(0)">Sản phẩm mới</a><br>
                 <a href="javascript:void(0)">Nước hoa cao cấp</a><br>
                 <a href="javascript:void(0)">Thời trang nữ</a><br>
                 <a href="javascript:void(0)">Thời trang nam</a><br>
@@ -152,164 +152,120 @@
 
                 <div class="featured-products mt-3">
                     <div class="row mt-4 featured-products-all">
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
+                        <div class="col-sm-3 card" id="body_product_image" v-for="(product, index) in rowActive" v-bind:key="index">
+                            <div class="card-body" @click="goDetail(product)">
                                 <button class="btn btn-outline-danger">-45%</button>
-                                <a href="javascript:void(0)" @click="Product_detail">
-                                    <img src="../assets/sp2.jpg" width="100%">
-                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                </a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-outline-danger">-35%</button>
-                                <img src="../assets/sp3.png" width="100%">
-                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-outline-danger">-55%</button>
-                                <img src="../assets/sp4.jpg" width="100%">
-                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-outline-danger">-45%</button>
-                                <img src="../assets/sp2.jpg" width="100%">
-                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-outline-danger">-55%</button>
-                                <img src="../assets/sp4.jpg" width="100%">
-                                <a href="javascript:void(0)">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-outline-danger">-45%</button>
-                                <img src="../assets/sp2.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-danger">-45%</button>
-                                <img src="../assets/sp2.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-danger">-35%</button>
-                                <img src="../assets/sp3.png" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-danger">-55%</button>
-                                <img src="../assets/sp4.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-danger">-45%</button>
-                                <img src="../assets/sp2.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-danger">-55%</button>
-                                <img src="../assets/sp4.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 card">
-                            <div class="card-body">
-                                <button class="btn btn-danger">-45%</button>
-                                <img src="../assets/sp2.jpg" width="100%">
-                                <a href="Productdetail">Nước Hoa Nam DYNIK Mát Lạnh Biển Xanh-...</a>
-                                <h6>297.000<u>đ</u>  <strike> <i> 350.000<u>đ</u></i></strike></h6> 
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+
+                                <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
+                                    
+                                <div id="name_product">
+                                    <p>{{ product.product_name }}</p>
+                                    <h6>{{ product.price }}<u> đ</u></h6> 
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-               
-                <br><hr>
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">Trước</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">1</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">3</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">4</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">...</a></li>
-                    <li class="page-item"><a class="page-link text-dark" href="javascript:void(0);">Sau</a></li>
-                </ul><hr>
+
+                <br>
+                    <button class="btn btn-success" @click="ActPrevPage">Prev</button>
+                    <button class="btn btn-success" @click="ActNextPage">Next</button>
+                    
+                <hr>
             </div>
         </div>
   </div>
 </template>
 <script>
+import axios from 'axios'
+import {RouterLink} from '../main'
 export default {
-    methods:{
-        backHome(){
-            this.$router.push({path:"/"}) 
+    data(){
+        return{
+            //products : [],
+            current_page : '',
+            nextPage: '',
+            prevPage: '',
+            rowActive : [],
+            totalAct : ''
         }
-    }
+    },
+    created(){
+        this.getActive()
+    },
+    methods:{
+        goDetail(p){
+            this.$router.push({ name: 'product-detail', params: { detail: p } })
+        },
+        // AllProduct(){
+        //     let re = this
+        //     axios.post('http://localhost:8000/api/product')
+        //     .then(function (response) {
+        //         re.rowActive = response.data.data
+        //         re.current_page = response.data.current_page
+        //     })
+        //     .catch(function (error) {
+        //         // handle error
+        //         console.log(error);
+        //     })
+        //     .then(function () {
+        //         // always executed
+        //     });
+        // },
+        getActive(){
+        let this2 = this
+        //axios.post(`${server}/active-product-admin`)
+        axios.post('http://localhost:8000/api/product')
+        .then(function (response) {
+            this2.rowActive = response.data.data
+            this2.totalAct = response.data.total
+            this2.current_page = response.data.current_page
+            this2.nextPage = response.data.next_page_url
+            this2.prevPage = response.data.prev_page_url
+            console.log(this2.current_page)
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        },
+
+        ActNextPage(){
+            let this2 = this
+            axios.post(this2.nextPage)
+            .then(function (response) {
+                this2.rowActive = response.data.data
+                this2.current_page = response.data.current_page
+                this2.nextPage = response.data.next_page_url
+                this2.prevPage = response.data.prev_page_url
+                console.log(this2.current_page)
+
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+        },
+        ActPrevPage(){
+            let this2 = this
+            axios.post(this2.prevPage)
+            .then(function (response) {
+                this2.rowActive = response.data.data
+                this2.current_page = response.data.current_page
+                this2.nextPage = response.data.next_page_url
+                this2.prevPage = response.data.prev_page_url
+                console.log(this2.current_page)
+
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+        }
+    } 
 }
 </script>
 

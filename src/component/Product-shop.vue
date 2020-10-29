@@ -70,6 +70,9 @@ export default {
         this.DetailShop()
     },
     methods:{
+        goDetail(p){
+            this.$router.push({ name: 'product-detail', params: { detail: p } })
+        },
         DetailShop(){
             let re = this
             axios.post('http://127.0.0.1:8000/api/show-product-shop', {shop_id:this.data.shop_id})

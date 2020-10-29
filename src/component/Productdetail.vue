@@ -50,7 +50,7 @@
 
             <div class="col-sm-12" id="description"> <br> <br> <hr> <br>
               <h5>Mô Tả</h5>
-              <p>{{data.description}}</p>
+              <p v-html="data.description"></p>
             </div>
 
             <div class="col-sm-4">
@@ -284,6 +284,9 @@ export default {
     this.getComment()
 
     this.ProductDetail()
+
+    // let demoa = new DOMParser().parseFromString(this.data.description, 'text/html');
+    // this.data.description = demoa.body.textContent
 
     function getCookie(cname) {
       var name = cname + "=";

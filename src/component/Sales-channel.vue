@@ -104,8 +104,8 @@ export default {
         re.location_big = response.data[0]
         
         let location = {
-          lat: re.location_big.lat,
-          lon: re.location_big.lon
+          latitude: re.location_big.lat,
+          longitude: re.location_big.lon
         }
         re.re_shop.location = JSON.stringify(location)
         re.ReShop2(re.re_shop)

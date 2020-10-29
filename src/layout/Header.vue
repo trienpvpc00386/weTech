@@ -1,168 +1,211 @@
 <template>
-  <div>
-      <nav class="navbar navbar-expand-lg navbar-light" id="header-top">
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav mr-auto" id="header-top-ul">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-pencil-square-o"></i> Ticketbox</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-support"></i> Trợ lý WeTech</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-suitcase"></i> Ưu đãi đối tác</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-bolt"></i> Khuyến mãi hot</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-plane"></i> Chọn cửa hàng</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#"><i class="fa fa-globe"></i> Hàng quốc tế</a>
-            </li>
-            <router-link to="/sales-channel">
-              <li class="nav-item active">
-                <a class="nav-link" href="javascript:void(0)"><i class="fa fa-money"></i> Bán cùng WeTech</a>
-              </li>
-            </router-link>
-            <router-link to="/contact">
-              <li class="nav-item active">
-                <a class="nav-link" href="javascript:void(0)"><i class="fa fa-money"></i> Hỗ trợ khách hàng</a>
-              </li>
-            </router-link>
-          </ul>
-        </div>
-      </nav>
-
-      <nav class="navbar navbar-expand-lg navbar-dark" id="header">
-        <a class="navbar-brand" href="javascript:void(0)" @click="Home"><img src="../assets/logo-final.png" width="150px"></a>
-        <button class="navbar-toggler menu-reponsive" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto" id="header-ul">
-            <form class="form-inline my-2 my-lg-0">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" size="46%" v-model="search.txtsearch" placeholder="Tên sản phẩm, loại sản phẩm">
-                <div class="input-group-append">
-                  <button class="btn search-menu" type="button" @click="Search"><i class="fa fa-search"></i> Tìm kiếm</button>
-                </div>
-              </div>
-            </form>
-            <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)" @click="Wishlist_product"><i class="	fa fa-heart" style="color: red"></i> Yêu thích</a>
-            </li>
-            <li class="nav-item ml-2">
-              <div class="dropdown">
-                <a class="btn btn-outline-warning" href="javascript:void(0)" role="button" id="products-viewed-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-bell" style="color: #FF8000"></i> Thông báo <span class="badge badge-warning">3</span>
-                </a>
-                <div class="dropdown-menu row" aria-labelledby="products-viewed-menu">
-                    <li><a class="dropdown-item" href="javascript:void(0)">Bạn chưa có thông báo nào</a></li>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item ml-3">
-              <div class="dropdown">
-                <router-link
-                to="/cart"
-                >
-                <a type="button" role="button" class="btn btn-outline-success" href="javascript:void(0)" id="cart-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-cart-plus"></i> Giỏ hàng <span class="badge badge-warning">2</span>
-                </a>
-                </router-link>
-                <div class="dropdown-menu row" aria-labelledby="cart-menu">
-                    <div class="card" v-for="(sp, index) in cart" :key="index">
-                      <div class="">
-                        <img :src="sp.image" width="40px" height="40px"> <span>X {{sp.quantity}}</span>
-                        <p>{{sp.name}}</p>
-                      </div>
-                    </div>
-                    <li><a class="dropdown-item" href="javascript:void(0)" @click="View_cart">
-                          <button class="btn btn-warning btn-block" v-if="cart">Xem Giỏ Hàng</button>
-                          <button class="btn btn-warning btn-block" v-else>Giỏ Hàng Trống</button>
-                        </a>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" id="header-top">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto" id="header-top-ul">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-pencil-square-o"></i> Ticketbox</a>
                     </li>
-                </div>
-              </div>
-            </li>
-            <li class="nav-item ml-5">
-              <div class="dropdown">
-                <a class="nav-link" href="#" role="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o"></i>
-                <span  v-if="user==null">Tài Khoản</span>
-                <span  v-else-if="user.name">{{user.name}}</span>
-                <span  v-else>Tài Khoản</span>
-                </a>
-                  <div class="dropdown-menu row" aria-labelledby="login-menu">
-                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Login"><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
-                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Sigin"><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
-                      <li><a class="dropdown-item" href="javascript:void(0)" @click="UpdateAccount"><button class="btn btn-warning btn-block">Cập nhật Tài Khoản</button></a></li>
-                      <li><a class="dropdown-item" href="javascript:void(0)" @click="Logout"><button class="btn btn-warning btn-block">Đăng Xuất</button></a></li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-support"></i> Trợ lý WeTech</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-suitcase"></i> Ưu đãi đối tác</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-bolt"></i> Khuyến mãi hot</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-plane"></i> Chọn cửa hàng</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"><i class="fa fa-globe"></i> Hàng quốc tế</a>
+                    </li>
+                    <router-link to="/sales-channel">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="javascript:void(0)"><i class="fa fa-money"></i> Bán cùng WeTech</a>
+                        </li>
+                    </router-link>
+                    <router-link to="/contact">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="javascript:void(0)"><i class="fa fa-money"></i> Hỗ trợ khách hàng</a>
+                        </li>
+                    </router-link>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark" id="header">
+            <a class="navbar-brand" href="javascript:void(0)" @click="Home"><img src="../assets/logo-final.png" width="150px"></a>
+            <button class="navbar-toggler menu-reponsive" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto" id="header-ul">
+                  <form class="form-inline my-2 my-lg-0">
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" size="46%" v-model="search.txtsearch" placeholder="Tên sản phẩm, loại sản phẩm">
+                          <div class="input-group-append">
+                            <button class="btn search-menu" data-toggle="modal" data-target="#myModal" type="button" @click="Search"><i class="fa fa-search"></i> Tìm kiếm</button>
+                          </div>
+                          <!-- The Modal -->
+                          <div class="modal fade" id="myModal">
+                            <div class="modal-dialog modal-xl">
+                              <div class="modal-content">
+                              
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Sản Phẩm Bạn Tìm Kiếm</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="featured-products mt-4">
+                                        <h4 class=""><b class="mt-2">Sản phẩm được tìm kiếm bằng từ khóa - </b><i> {{search.txtsearch}}  </i></h4><hr>
+                                        <div class="row mt-4 featured-products-all">
+                                            <div class="col-sm-2 card" id="body_product_image" v-for="(product, index) in product_search" v-bind:key="index">
+                                                <div class="card-body" @click="goDetail(product)">
+                                                    <button class="btn btn-outline-danger">-45%</button>
+
+                                                    <a href="javascript:void(0)" class="mt-1"><img :src="product.image" width="100%"></a>
+                                                    
+                                                    <div id="name_product">
+                                                        <p>{{ product.product_name }}</p>
+                                                        <h6>{{ product.price }}<u> đ</u></h6> 
+                                                        <div class="progress">
+                                                            <div class="progress-bar bg-success" style="width:40%">Đã bán 10</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </form>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" @click="Wishlist_product"><i class="	fa fa-heart" style="color: red"></i> Yêu thích</a>
+                </li>
+                <li class="nav-item ml-2">
+                  <div class="dropdown">
+                    <a class="btn btn-outline-warning" href="javascript:void(0)" role="button" id="products-viewed-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-bell" style="color: #FF8000"></i> Thông báo <span class="badge badge-warning">3</span>
+                    </a>
+                    <div class="dropdown-menu row" aria-labelledby="products-viewed-menu">
+                        <li><a class="dropdown-item" href="javascript:void(0)">Bạn chưa có thông báo nào</a></li>
+                    </div>
                   </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <nav class="navbar navbar-expand-lg navbar-dark" id="menu">
-        <a class="navbar-brand" href="#"><i class="fa fa-reorder"></i> DANH MỤC SẢN PHẨM</a>
-
-        <div class="collapse navbar-collapse ml-4" id="navbarText">
-          <ul class="navbar-nav mr-auto" id="menu-ul">
-            <li class="nav-item active">
-              <router-link to="/">
-                <a class="btn btn-light" href="javascript:void(0)"><i class="fa fa-map-marker" style="color: red"></i> Bạn muốn giao hàng tới đâu?</a>
-              </router-link>
-            </li>
-            <li class="nav-item active">     
-              <div class="dropdown">
-                <router-link to="/">
-                  <a class="btn btn-light dropdown-toggle" href="javascript:void(0)" role="button" id="products-viewed-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sản phẩm bạn đã xem
-                  </a>
-                </router-link>
-                <div class="dropdown-menu row" aria-labelledby="products-viewed-menu">
-                    <div class="card">
-                      <div class="container">
-                        <img src="../assets/sp1.jpg" width="50px">
-                        <p>Nước Hoa</p>
-                      </div>
+                </li>
+                <li class="nav-item ml-3">
+                  <div class="dropdown">
+                    <router-link
+                    to="/cart"
+                    >
+                    <a type="button" role="button" class="btn btn-outline-success" href="javascript:void(0)" id="cart-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fa fa-cart-plus"></i> Giỏ hàng <span class="badge badge-warning">2</span>
+                    </a>
+                    </router-link>
+                    <div class="dropdown-menu row" aria-labelledby="cart-menu">
+                        <div class="card" v-for="(sp, index) in cart" :key="index">
+                          <div class="">
+                            <img :src="sp.image" width="40px" height="40px"> <span>X {{sp.quantity}}</span>
+                            <p>{{sp.name}}</p>
+                          </div>
+                        </div>
+                        <li><a class="dropdown-item" href="javascript:void(0)" @click="View_cart">
+                              <button class="btn btn-warning btn-block" v-if="cart">Xem Giỏ Hàng</button>
+                              <button class="btn btn-warning btn-block" v-else>Giỏ Hàng Trống</button>
+                            </a>
+                        </li>
                     </div>
-                    <div class="card">
-                      <div class="container">
-                        <img src="../assets/sp1.jpg" width="50px">
-                        <p>Nước Hoa</p>
+                  </div>
+                </li>
+                <li class="nav-item ml-5">
+                  <div class="dropdown">
+                    <a class="nav-link" href="#" role="button" id="login-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle-o"></i>
+                    <span  v-if="user==null">Tài Khoản</span>
+                    <span  v-else-if="user.name">{{user.name}}</span>
+                    <span  v-else>Tài Khoản</span>
+                    </a>
+                      <div class="dropdown-menu row" aria-labelledby="login-menu">
+                          <li><a class="dropdown-item" href="javascript:void(0)" @click="Login"><button class="btn btn-warning btn-block">Đăng Nhập</button></a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0)" @click="Sigin"><button class="btn btn-warning btn-block">Tạo Tài Khoản</button></a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0)" @click="UpdateAccount"><button class="btn btn-warning btn-block">Cập nhật Tài Khoản</button></a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0)" @click="Logout"><button class="btn btn-warning btn-block">Đăng Xuất</button></a></li>
                       </div>
-                    </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="nav-item active">
-              <router-link to="/">
-                <a class="btn btn-light" href="javascript:void(0)"><i class="fa fa-truck" style="color: black"></i> Giao nhanh miễn phí</a>
-              </router-link>
-            </li>
-            <li class="nav-item active">
-              <router-link to="/track-orders">
-                <a class="btn btn-light" href="javascript:void(0)"><i class="fa fa-map-marker" style="color: red"></i> Theo dõi đơn hàng</a>
-              </router-link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div class="chatbot">
-        <div class="dropup">
-          <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Chat
-          </button>  -->
-          <img src="../assets/logo-tai-messenger.png" width="70px" data-toggle="dropdown">
-          <div class="dropdown-menu" id="chatbot-body">
-            <Chat/>
+                  </div>
+                </li>
+              </ul>
           </div>
-        </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark" id="menu">
+          <a class="navbar-brand" href="#"><i class="fa fa-reorder"></i> DANH MỤC SẢN PHẨM</a>
+
+          <div class="collapse navbar-collapse ml-4" id="navbarText">
+            <ul class="navbar-nav mr-auto" id="menu-ul">
+              <li class="nav-item active">
+                <router-link to="/">
+                  <a class="btn btn-light" href="javascript:void(0)"><i class="fa fa-map-marker" style="color: red"></i> Bạn muốn giao hàng tới đâu?</a>
+                </router-link>
+              </li>
+              <li class="nav-item active">     
+                <div class="dropdown">
+                  <router-link to="/">
+                    <a class="btn btn-light dropdown-toggle" href="javascript:void(0)" role="button" id="products-viewed-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Sản phẩm bạn đã xem
+                    </a>
+                  </router-link>
+                  <div class="dropdown-menu row" aria-labelledby="products-viewed-menu">
+                      <div class="card">
+                        <div class="container">
+                          <img src="../assets/sp1.jpg" width="50px">
+                          <p>Nước Hoa</p>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="container">
+                          <img src="../assets/sp1.jpg" width="50px">
+                          <p>Nước Hoa</p>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="nav-item active">
+                <router-link to="/">
+                  <a class="btn btn-light" href="javascript:void(0)"><i class="fa fa-truck" style="color: black"></i> Giao nhanh miễn phí</a>
+                </router-link>
+              </li>
+              <li class="nav-item active">
+                <router-link to="/track-orders">
+                  <a class="btn btn-light" href="javascript:void(0)"><i class="fa fa-map-marker" style="color: red"></i> Theo dõi đơn hàng</a>
+                </router-link>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="chatbot">
+          <div class="dropup">
+            <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              Chat
+            </button>  -->
+            <img src="../assets/logo-tai-messenger.png" width="70px" data-toggle="dropdown">
+            <div class="dropdown-menu" id="chatbot-body">
+              <Chat/>
+            </div>
+          </div>
       </div>
   </div>
 </template>
@@ -171,6 +214,7 @@
 import jquery from 'jquery'
 import Chat from '../component/Chat'
 import {eventBus} from './../main'
+import axios from 'axios'
 export default {
   data(){
     return {
@@ -179,7 +223,8 @@ export default {
       user: {},
       search:{
         txtsearch: ''
-      }
+      },
+      product_search : []
     }
   },
   components:{
@@ -208,8 +253,21 @@ export default {
       this.$router.push({path:"/"}) 
     },
     Search(){
-      this.$router.push({name:"search-product", params:{search:this.search.txtsearch}})
+      // this.$router.push({name:"search-product", params:{search:this.search.txtsearch}})
       // eventBus.$emit("search-keyword",this.search.txtsearch)
+      let re = this
+      axios.post('http://127.0.0.1:8000/api/search-product', {keywords:this.search.txtsearch})
+      .then(function (response) {
+        console.log(response.data)
+        re.product_search = response.data
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
     },
     Login(){
       this.$router.push({path:"/login"})
@@ -235,6 +293,41 @@ export default {
 </script>
 
 <style>
+  .featured-products{
+        width: 87%;
+        margin-left: 6.5%;
+        margin-right: 6.5%;
+    }
+    .featured-products h4{
+        color: rgb(255, 72, 0);
+    }
+    .featured-products h5{
+        color: rgb(255, 30, 0);
+    }
+    .featured-products .card{
+        border: 0;
+        width: 100%;
+    }
+    .featured-products-all>.card{
+        width: 100%;
+    }
+    #body_product_image img{
+        max-width: 150px;
+        max-height: 150px;
+        background-size: cover;
+        
+    }
+    .featured-products .featured-products-all{
+        background-color: white;
+    }
+    .featured-products .card:hover{
+        box-shadow: 0 0 10px rgb(192, 191, 191);
+        background-color: rgb(250,250,250);
+    }
+    .featured-products-all p:hover{
+        color: rgb(253, 125, 5);
+    }
+
   #header-top{
     background-color: #339977;
     padding-top: -60px;
